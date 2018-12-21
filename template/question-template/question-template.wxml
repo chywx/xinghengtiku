@@ -1,0 +1,112 @@
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
+<template name="questionTemplate" >
+  <view class="ti-wen">
+    <text class="ti-wen-num">{{examId+1}} </text>
+    <text>{{newExamAsk.examAsk}}</text>
+    <view class="que-img" wx:for="{{newExamAsk.imgs}}" wx:key="0" wx:for-index="ids">
+      <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu'>
+      </image>
+      <text class="que-img-num">图{{ids+1}}</text>
+    </view>
+  </view>
+
+
+  <view class="ti-da">
+    <checkbox-group id="{{questionId}}" bindchange="onCheckboxChange" data-index="{{examId+1}}" wx:if="{{examType=='D' }}">
+    <!-- || examType=='V' || (examType=='G' || examType=='C') -->
+      <label class="checkbox" style='display:block;margin-bottom:10rpx;' wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
+        <checkbox color="#0b8cf9" checked="{{item.checked == 'true' ? 'checked' : ''}}" value="{{item.name}}" />{{item.name}}:
+        <block wx:if="{{item.value==null}}">
+          <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu'>
+          </image>
+        </block>
+        <block wx:else >{{item.value}}</block>
+      </label>
+    </checkbox-group>
+
+    <view wx:if="{{examType=='E'}}">\t</view>
+
+    <radio-group class="radio-group" bindchange="onRadioChange" id="{{questionId}}" wx:if="{{examType == 'A' || examType == 'B' || examType == 'C'}}"
+                                           data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}" data-qbid="{{qbid}}" data-index='{{index}}'  >
+      <label wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
+          <!-- 是章节练习，做一道题查看一道题的答案 -->
+          <view wx:if="{{!isExam && isZjlx}}">
+              <!-- 如果选项跟正确答案一样，并且展示解析，那么显示的时候就是背题操作，可以直接看到正确的答案。。。倘若是直接做题，做一道showParse就为TRUE，走前面的路。radio有color属性，可以直接设置。 -->
+              <view wx:if="{{item.name == examRight}}">
+                <radio color="{{showParse == true ? '#0b8cf9':''}}" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
+                <span class="{{showParse == true ? 'AA':''}}">{{item.name}} </span>
+                <block  ><span class="{{showParse == true ? 'AA':''}}">{{item.value}}</span></block>
+              </view>
+              <!-- 如果跟答案不一样，不考虑有没有解析，只考虑当前选项是不是答案，是的话选中为蓝色，不是的话选中为红色。不选为默认黑色。 -->
+              <view wx:if="{{item.name != examRight}}">
+                <radio color="{{answer[questionId] == item.name ? 'red':''}}" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
+                <span class="{{answer[questionId] == item.name ? 'BB':''}}">{{item.name}} </span>
+                <block  ><span class="{{answer[questionId] == item.name ? 'BB':''}}">{{item.value}}</span></block>
+              </view>
+          </view>
+          <!-- ***不是考试，也不是章节练习，就是直接查看解析，将radio设置为disable,可见还是直接看解析最容易。 -->
+          <view wx:if="{{!isExam && !isZjlx}}">
+              <radio disabled="true"/>
+              <span class="{{item.name == examRight ? 'AA':''}}">{{item.name}} </span>
+              <block><span class="{{item.name == examRight ? 'AA':''}}">{{item.value}}</span></block>
+          </view>
+          <!-- ***只要是考试，那么就不考虑直接回显答案问题，直接使用默认选中样式即可 -->
+          <view wx:if="{{isExam}}">
+              <radio color="#0b8cf9" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
+              <span class="{{answer[questionId] == item.name ? 'AA' : ''}}">{{item.name}} </span>
+              <block><span class="{{answer[questionId] == item.name ? 'AA' : ''}}">{{item.value}}</span></block>
+          </view>
+      </label>
+    </radio-group>
+  </view>
+  <!-- haha {{showParse}} -->
+  <view wx:if="{{showParse}}" class="jiexi">
+    <view class="ti-right jiexi-da">
+      <view class="jiexi-da-l">
+        正确答案：
+        <text>{{examRight}}</text>
+      </view>
+      <view class="jiexi-da-c" wx:if="{{!isExam && !isZjlx}}"> 
+        我的答案：
+        <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{answer[questionId]}}</text>
+      </view>
+      <view class="jiexi-da-r"><text bindtap='onComments' data-feedid='{{feedId}}'>{{examDataDetailObj[qid].notes}}评论</text></view>
+    </view>  
+    <view class="jiexi-li">
+      <view class="jiexi-li-l">
+      错题率：
+      <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{filters.toFix(examDataDetailObj[qid].wrongs,examDataDetailObj[qid].dos)}}% \t</text>
+      </view>
+      <view class="jiexi-li-r"><text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].favorites}}人收藏</text></view>
+    </view>
+    <view class="jiexi-li">      
+        <!-- <text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1}}</text> -->
+      <view class="comment1-description" style="display:flex;flex-direction:row;">
+        难度：
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=1? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=2? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=3? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=4? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=5? 'on': ''}}"></view>
+        </view>
+      </view>
+    </view>      
+      <!-- <text class="space">  </text> 评论数量：评论数暂且不搞。
+      <text class="{{'green'}}">{{examDataDetailObj[qid].}}人</text> -->
+    
+    <!-- <i-button bind:click="sortData" inline type="primary">按错题率排序</i-button>
+    <i-button bind:click="showWrong" inline type="error">只显示错题</i-button> -->
+    <view class="ti-resolve">
+      解析：<view></view>
+      <text>{{resolve.examResolve}}
+    </text>
+      <view class="que-img" wx:for="{{resolve.imgs}}" wx:key="0" wx:for-index="ids">
+        <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu'>
+        </image>
+        <text class="que-img-num">图{{ids+1}}</text>
+      </view>
+    </view>
+    <zj-biji noteText="{{threeData.notes[qid].Content}}" qid="{{qid}}" bind:delEvent="_delEvent" bind:confirmEvent="_confirmEvent"></zj-biji>
+  </view>
+</template>

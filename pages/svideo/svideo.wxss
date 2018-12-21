@@ -1,0 +1,27 @@
+page {background-color: #f4f4f4;}
+.top_adv {border-bottom: 1px solid #dcdcdc;margin-bottom: 20rpx;}
+.top_adv image {width: 750rpx;height: 148rpx;display: block;margin: 0 auto;}
+
+.swiper-tab {border-top: 1px solid #dcdcdc;border-bottom: 1px solid #dcdcdc;display: flex;flex-direction: row;font-size: 28rpx;
+color: #000;align-items: center;}
+.xian {width: 1px;height: 40rpx;background-color: #dcdcdc;}
+.swiper-tab .swiper-tab-list {flex: 1;text-align: center;padding: 20rpx 0;margin-bottom: -1px;}
+.on {border-bottom: 2px solid #297be7;}
+swiper-item{flex-direction: column;overflow:auto;}
+
+.kech_mb{display: flex;flex-direction: row;align-items: center;justify-content: space-around;border-bottom:1px solid #dcdcdc;
+position:relative;}
+.kech_mb .l_tu{padding:15px 5px 15px 15px;}
+.kech_mb .l_tu image{width:226rpx;height:162rpx;display:block;}
+.kech_mb .tb_hot{position:absolute;left:0;top:0;}
+.kech_mb .tb_hot image{width:60rpx;height:60rpx;}
+.kech_mb .r_cont{padding:15px 15px 15px 5px;font-size:12px;color:#7a7a7a;text-align: justify;}
+.kech_mb .r_cont .title{font-size:30rpx;margin-bottom:10rpx;}
+.kech_mb .r_cont .title text{color:#000;}
+.kech_mb .r_cont .shiting{display: flex;align-items: center;margin-bottom:10rpx;}
+.kech_mb .r_cont .shiting text{padding:0 30rpx 0 10rpx;}
+.kech_mb .r_cont .price{display: flex;align-items: center;justify-content: space-between;}
+.kech_mb .r_cont .price .price1{text-decoration:line-through;margin-right:10rpx;}
+.kech_mb .r_cont .price .price2{color:#e90101;font-size:28rpx;}
+.kech_mb .r_cont .price .tu_tiku{width:53rpx;height:28rpx;}
+.kech_mb .r_cont .price .tu_zhibo{width:53rpx;height:28rpx;margin-left:10rpx;}

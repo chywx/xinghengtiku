@@ -1,0 +1,45 @@
+<import src="../../../template/type-template/type-template.wxml" />
+<import src="../../../template/question-template/question-template.wxml" />
+<import src="../../../template/datika-template/datika-template.wxml" />
+<import src="../../../template/listbutton-template/listbutton-template.wxml" />
+<import src="../../../template/answer-template/answer-template.wxml" />
+<!-- <wxs module="filters" src="../../../utils/addmul.wxs"></wxs> 在这添加没效果，需要在对应的模板里面添加才可以生效。-->
+<view class="container">
+  <!-- <form bindsubmit="formSubmit">
+    <view class="{{examcurrent==examData.examId?'show':'hide'}}" wx:for-index="idx" wx:for="{{examData}}" wx:for-item="examData" 
+          wx:key="{{navItemId}}">
+
+      <template is="typeTemplate" data="{{...examData,examSum,ksscFormat,showJiaojuan}}"></template>
+      <view class="ti" style="height:{{winHeight-92}}px" wx:if="{{beitistatus}}">
+        <template is="questionTemplate" data="{{...examData,answer,basePath,examData,examDataDetailObj,threeData}}"></template>
+      </view>
+       <template is="listbuttonTemplate" data="{{...examData,showStatus,examSum,beiti,beiti_logo,chongkao,beitistatus,examcurrent,shoucang,threeData}}"></template>
+    </view>
+    <template is="datikaTemplate" data="{{examData,showStatus,showJiaojuan,examcurrent,answers}}"></template>
+  </form> -->
+
+  <form bindsubmit="formSubmit">
+    <view class='show'>
+      <!-- 题型  -->
+      <template is="typeTemplate" 
+        data="{{...examData[examcurrent],examSum}}" />
+      <!-- 题目,没解析 -->
+      <view class="ti" style="height:{{winHeight-92}}px" wx:if="{{beitistatus}}"  bindtouchstart="touchstart" bindtouchend="touchend">
+        <template is="questionTemplate" 
+          data="{{isZjlx,isExam,...examData[examcurrent],answer,basePath,examDataDetailObj,threeData}}" />
+      </view>
+      <!-- 题目,有解析 -->
+      <view class="ti" style="height:{{winHeight-92}}px" wx:if="{{!beitistatus}}">
+        <template is="answerTemplate" 
+          data="{{isZjlx,isExam,...examData[examcurrent],answer,basePath,examDataDetailObj,threeData,beiti_logo}}"></template>
+      </view>
+      <!-- 4个按钮 -->
+      <template is="listbuttonTemplate" 
+        data="{{...examData[examcurrent],showStatus,examSum,beiti,beiti_logo,chongkao,beitistatus,examcurrent,shoucang,threeData}}" />
+    </view>
+    <!-- 引入答题卡 -->
+    <template is="datikaTemplate" 
+        data="{{examData,showStatus,showJiaojuan,examcurrent,answers}}" />
+  </form>
+
+</view>

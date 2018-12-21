@@ -1,0 +1,46 @@
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
+<template name="listbuttonTemplate">
+  <view class="ti-button">
+    <view class="ti-button-every" catchtap='onTabBefore'>
+      <image src="../../../images/tabbar/zuojiantou.png" wx:if="{{examId>0}}"></image>
+      <image src="../../../images/tabbar/zuojiantou2.png" wx:if="{{examId<=0}}"></image>
+      <!-- <text>上一题</text> -->
+    </view>
+    <view class="ti-button-every" catchtap='onDatika'>
+      <image src="../../../images/tabbar/datika.png" wx:if="{{showStatus==false}}"></image>
+      <image src="../../../images/tabbar/datika2.png" wx:if="{{showStatus==true}}"></image>
+      <text>答题卡</text>
+    </view>
+    <view wx:if="{{beiti==true}}" class="ti-button-every" catchtap='onBeiti' data-examcurrent='{{examcurrent}}' data-beiticonfirm='{{beitistatus}}'>
+      <image src="../../../images/tabbar/beiti.png" wx:if="{{beiti_logo==false}}"></image>
+      <image src="../../../images/tabbar/beiti2.png" wx:else></image>
+      <text>背题</text>
+    </view>
+    <!-- 如果在wxml中使用自定义函数，这个时候函数如果在组件中会一直执行,当然，如果传入的是变量也是会一直执行的。有时候我们只想执行当前罢了。 -->
+    <!-- {{filters.toIncludeFlag(threeData.favorites,100) == -1}} -->
+    <!-- {{filters.toIncludeFlag(threeData.favorites,qid) == -1}} -->
+
+<!-- 准确来说，这个data-scstatus是有问题的，不应该使用函数 -->
+<!-- data-scstatus="{{filters.toIncludeFlag(threeData.favorites,qid)}}" -->
+    <view wx:if="{{shoucang==true}}" class="ti-button-every" catchtap='onShoucang' data-qid='{{qid}}'  >
+      <image src="../../../images/tabbar/shoucang.png" wx:if="{{filters.toIncludeFlag(threeData.favorites,qid) == -1}}"></image>
+      <image src="../../../images/tabbar/shoucang2.png" wx:if="{{filters.toIncludeFlag(threeData.favorites,qid) != -1}}"></image>
+      <text>收藏</text>
+    </view>
+  
+
+    <button wx:if="{{showJiaojuan==true}}" class="ti-button-every" form-type='submit'>
+      <image src="../../../images/tabbar/tb_jiaojuan.png"></image>
+      <text>交卷</text>
+    </button>
+    <button wx:if="{{chongkao=='true'}}" class="ti-button-every" catchtap="restartExam" >
+      <image src="../../../img/edit.png"></image>
+      <text>重考</text>
+    </button>
+    <view class="ti-button-every" catchtap='onTabNext'>
+      <image src="../../../images/tabbar/youjiantou.png" wx:if='{{examId+1<examSum}}'></image>
+      <image src="../../../images/tabbar/youjiantou2.png" wx:if='{{examId+1>=examSum}}'></image>
+      <!-- <text>下一题</text> -->
+    </view>
+  </view>
+</template>

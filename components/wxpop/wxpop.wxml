@@ -1,0 +1,17 @@
+<view class="{{status?'show':'hide'}}">
+  <view class="pop"></view>
+  <view class="wxpop">
+    <view class="wx">
+      <view class="title">和专业老师一起学习！</view>
+      <view class="lpz"><image src="/images/newimage/lpz.png"></image></view>
+      <view class="txt">
+        <text>添加专业辅导老师微信</text>
+        <text>立即观看直播课程</text>
+      </view>
+    </view>
+    <view class="btn_add">
+      <view class="add"><image src="/images/newimage/tb_wx.png"></image>加老师微信</view>
+    </view>    
+    <view class="close"><image src="/images/newimage/close.png" bindtap="onClose"></image></view>
+  </view>
+</view>

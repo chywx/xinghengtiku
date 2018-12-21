@@ -1,0 +1,6 @@
+.logo{display:flex;flex-direction: column;align-items: center;padding-top:200rpx;}
+.logo image{width:180rpx;height:180rpx;margin-bottom:10px;}
+.logo text{font-size:38rpx;}
+.tip{font-size:28rpx;color:#c2c2c2;margin:20px 0;}
+.tel{width:100%;padding:0 15px;}
+.tel input{border-bottom:1px solid #ddd;margin-bottom:20px;font-size:36rpx;padding:5px;}

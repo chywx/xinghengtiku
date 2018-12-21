@@ -1,0 +1,34 @@
+<import src="../../../template/type-template/type-template.wxml" />
+<import src="../../../template/question-template/question-template.wxml" />
+<import src="../../../template/datika-template/datika-template.wxml" />
+<import src="../../../template/listbutton-template/listbutton-template.wxml" />
+<import src="../../../template/answer-template/answer-template.wxml" />
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view>
+      <!-- 题型  -->
+      <template is="typeTemplate" 
+        data="{{...examData[examcurrent],examSum,secondFormat,showShiJian}}" />
+      <!-- 题目,没解析 -->
+      <view class="ti" style="height:{{winHeight-92}}px" wx:if="{{beitistatus}}"  bindtouchstart="touchstart" bindtouchend="touchend">
+        <template is="questionTemplate" 
+          data="{{isZjlx,showParse,isExam,...examData[examcurrent],answer,basePath,examDataDetailObj,threeData}}" />
+      </view>
+      <!-- 题目,有解析 -->
+      <view class="ti" style="height:{{winHeight-92}}px" wx:if="{{!beitistatus}}">
+        <template is="answerTemplate" 
+          data="{{isZjlx,isExam,...examData[examcurrent],answer,basePath,examDataDetailObj,threeData,beiti_logo}}"></template>
+      </view>
+      <!-- 底部按钮 -->
+      <template is="listbuttonTemplate" 
+        data="{{...examData[examcurrent],showJiaojuan,showStatus,examSum,showShiJian,chongkao,beitistatus,examcurrent,shoucang,threeData}}" />
+    </view>
+    <!-- 引入答题卡 -->
+    <template is="datikaTemplate" 
+        data="{{examData,showJiaojuan,showStatus,showShiJian,examcurrent,answers}}" />
+    <!-- <zj-goodOrBad goodOrBad="{{goodOrBad}}"></zj-goodOrBad> -->
+  </form>
+
+  <!-- 做题通关弹窗 -->
+  <zj-goodOrBad bind:onClose="_onClose" goodOrBad="{{goodOrBad}}" rights="{{rights}}" score="{{rights * 10}}" duration="{{duration}}" bfb="{{bfb}}" ></zj-goodOrBad>
+</view>

@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="logo">
+    <image src="../../../img/logo.png"></image>
+    <text>星题库</text>
+  </view>
+  <text class="tip">*未注册的用户将自动注册</text>
+  <view class="tel">
+    <form>
+      <input name="phone" type="text" placeholder='输入手机号' bindinput='loginPhone' /> 
+      <button catchtap="bindButtonStep">获取验证码</button>
+    </form>
+  </view>
+</view>

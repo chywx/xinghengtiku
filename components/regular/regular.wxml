@@ -1,0 +1,32 @@
+<view class="{{showStatus?'show':'hide'}}">
+<view class="pop"></view>
+<view class="regular"> 
+  <view class="reg_t">
+    <view class="title">蹭课规则</view>
+    <view>
+    <view class="lit">一、 蹭如何蹭到直播课程</view>
+    <view class="li">1、正在直播课程-只需添加专业服务老师微信 即可学习正在直播课程</view>
+    <view class="li">2、未开通的课程想要预约直播课程</view>
+    <view class="licont">
+      <text>001首次推荐给微信好友</text>
+      <text>002首次推荐给微博好友</text>
+      <text>003首次推荐给QQ好友</text>
+      <text>004首次推荐到微信朋友圈</text>
+      <text>005首次推荐给QQ好友</text>
+      <text>006首次应用市场好评</text>
+      <text>007完成三次练习</text>
+    </view>
+    <view class="li">3、回放的直播课程，2元购买一次蹭课机会</view>
+    <view class="lit">二 、课程的有效期</view>
+    <view class="li">直播课程已两个星期为一个周期，下架后就不能观看了</view>
+    <view class="lit">三、课程是否支持离线观看</view>
+    <view class="li">蹭的直播课不支持离线观看，只有在课程详情页购买的课程才享有该特权</view>
+    <view class="lit">四、是否支持直播间提问</view>
+    <view class="li">蹭的直播课不支持直播提问，只有在课程详情页购买的课程才享有该特权</view>
+    </view>
+  </view>
+ <view class="close">
+  <image src="/images/newimage/close.png" class="teacher" bindtap='onCloseRegular'></image>
+ </view>
+</view> 
+</view>

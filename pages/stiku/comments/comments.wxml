@@ -1,0 +1,22 @@
+<!-- <image src='/images/newimage/Loading4.gif'></image> -->
+<view class="pingl_t">
+  <view class="pinglun" wx:for="{{lists}}" wx:key="{{index}}">
+    <view class="pl_l"><image src='{{item.user_img}}'></image></view>
+    <view class="pl_c">
+      <view class="users">{{item.creator_id}}</view>
+      <view class="time">{{item.create_time}}</view>
+      <view class="discuss">{{item.content}}</view>
+    </view>
+    <view class="pl_r" bindtap='onLike' data-index='{{index}}'>
+      <image src='/images/newimage/tb_hand.png' wx:if="{{item.is_like != 1}}"></image>
+      <image src='/images/newimage/tb_hand1.png' wx:if="{{item.is_like == 1}}"></image>
+      <text style='text-align:center;'>{{item.like_count}}</text>
+    </view>
+  </view>
+  <text>{{msg}}</text>
+</view>
+<view class="pl_txt">
+  <view class="set_pinglun">
+    <input placeholder="留下你的评论吧" bindinput="commentInput" value='{{inputComment}}'/> <text bindtap='uploadingComment'>发送评论</text>
+  </view>
+</view>

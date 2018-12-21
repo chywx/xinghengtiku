@@ -1,0 +1,5 @@
+.code-bt{margin-top:200rpx;font-size:34rpx;margin-bottom:30px;}
+.code{width:100%;padding:0 15px;margin-bottom:15px;}
+.code input{border-bottom:1px solid #ddd;margin-bottom:20px;font-size:36rpx;padding:5px;}
+.forget{font-size:28rpx;color:#333;}
+.forget a{color:#0b8cf9;}

@@ -1,0 +1,13 @@
+@import "../question-template/question-template.wxss"; 
+/*答案部分*/
+.ti .ti-right{margin-top:20px;padding-top:15px;border-top:1px dashed #ddd;}
+.ti .ti-right .space{padding-right:30rpx;}
+.ti .ti-right,
+.ti .ti-resolve{font-size:32rpx;margin-bottom:10px;text-align:justify;}
+.ti .ti-right text{color:#0b97f9;font-weight:bold;}
+.ti .ti-right .red{color:#f00;}
+.ti .ti-resolve text{font-size:30rpx;}
+.ti{overflow-y:auto;}
+.que-img{display:inline-block;text-align:center;width:250rpx;margin:5px 2px;}
+.que-img image{height:250rpx;width:250rpx;}
+.que-img-num{display:block;text-align:center;}

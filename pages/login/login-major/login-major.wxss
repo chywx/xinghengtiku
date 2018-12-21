@@ -1,0 +1,43 @@
+.major-list{
+  width: 100%;  
+  padding: 15px 15px 0;  
+  box-sizing: border-box;  
+  background-color: #d9ecfb;
+} 
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+  display:none;
+}
+.mink{
+  width: 100%;
+  background: #fff;
+  margin-bottom:15px;
+}
+.mink-t{
+  color: #fff;
+  text-align: left;
+  line-height: 60rpx;
+  float: left;
+  background: #5fb7f9; 
+  width: 100%;
+  font-size:28rpx;
+  padding-left:10px;
+} 
+.mink-b{padding:10px;overflow:hidden;line-height:62rpx;text-align:center;}
+.mink-b-items{  
+  float: left;   
+  width: 50%;
+  color: #4a4a4a; 
+  background: #fff;
+}   
+.mink-b-items text{ 
+  display: block;  
+  font-size:30rpx;
+  overflow:hidden;
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+  border:1px solid #dedede;
+  border-radius:10px;
+  padding:0 20px;
+  margin:5px;
+}

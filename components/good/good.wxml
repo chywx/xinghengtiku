@@ -1,0 +1,54 @@
+<view wx:if="{{goodOrBad == 'good'}}" class="{{status?'show':'hide'}}">
+  <view class="pop"></view>
+  <view class="wxpop">
+    <view class="pop_t">
+      <view class="good"><image src="/images/newimage/good.png"></image></view>
+      <view class="sum">
+        <image src="/images/newimage/bg_quan.png"></image>
+        <view class="score"><text>{{score}}</text>分</view>
+      </view>
+      <view class="count">
+        <view>答对{{rights}}题</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>正确率{{bfb}}%</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>耗时 {{duration}}s</view> 
+      </view>
+    </view>
+    <view class="pop_c">
+      <view class="xuanyao"><button open-type='share'>炫耀一下</button></view>
+      <view class="chacuo"><text>查看错题</text></view>
+    </view>
+    <!-- <view class="pop_b">
+      <view>重新闯关</view>
+      <view>下一章节</view>
+    </view> -->
+    <view class="close"><image src="/images/newimage/close.png" bindtap="_onClose"></image></view>
+  </view>
+</view>
+
+<view wx:if="{{goodOrBad == 'bad'}}" class="{{status?'show':'hide'}}">
+  <view class="pop"></view>
+  <view class="wxpop">
+    <view class="pop_t2">
+      <view class="good"><image src="/images/newimage/bad.png"></image></view>
+      <view class="sum2"><text>{{score}}</text>分</view>
+      <view class="count">
+        <view>答对{{rights}}题</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>正确率{{bfb}}%</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>耗时 {{duration}}s</view> 
+      </view>
+    </view>
+    <view class="pop_c">
+      <view class="xuanyao"><button open-type='share'>炫耀一下</button></view>
+      <view class="chacuo"><text>查看错题</text></view>
+    </view>
+    <!-- <view class="pop_b">
+      <view>重新闯关</view>
+      <view>下一章节</view>
+    </view> -->
+    <view class="close"><image src="/images/newimage/close.png" bindtap="_onClose"></image></view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<view class="container">  
+
+
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;"  
+    class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">  
+    <view class="item" wx:for="{{list}}">  
+      <image class="img" src="{{item.pic_url}}"></image>  
+      <view class="text">  
+        <text class="title">{{item.name}}</text>  
+        <text class="description">{{item.short_description}}</text>  
+      </view>  
+    </view>  
+  </scroll-view>  
+  <view class="body-view">  
+    <loading hidden="{{hidden}}" bindchange="loadingChange">  
+      加载中...  
+    </loading>  
+  </view>  
+</view>  

@@ -1,0 +1,8 @@
+page{background-color:#f4f4f4;}
+.add{display:flex;flex-direction: column;text-align:center;align-items: center;padding-top:240rpx;}
+.mess{margin-bottom:35rpx;}
+.mess text{display:block;font-size:28rpx;color:#7a7a7a;}
+.erweima image{width:242rpx;height:242rpx;}
+.name{font-size:28rpx;color:#202020;margin-top:20rpx;}
+.btn_add{background-color:#98c632;width:460rpx;height:80rpx;line-height:80rpx;text-align:center;color:#fff;font-size:28rpx;border-radius:200rpx;display:flex;align-items:center;justify-content: center;margin-top:100rpx;}
+.btn_add image{width:29rpx;height:30rpx;margin-right:10rpx;}

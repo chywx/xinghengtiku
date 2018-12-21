@@ -1,0 +1,7 @@
+.list{display: flex;flex-direction: column;font-family: 'Microsoft Yahei';}
+.list .list-title{font-size:32rpx;padding:0 30rpx;height:100rpx;flex-direction: row;line-height:100rpx;border-bottom:1px solid #ddd;}
+.list .list-title image{width:32rpx;height:32rpx;float:right;margin-top: 34rpx;}
+.list .list-title .num{background-color:#297be8;width:16rpx;height:16rpx;float:left;margin-right:16rpx;border-radius:8rpx;margin-top:42rpx;}
+.list .list-title .title_cont{float:left;width:620rpx;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+
+

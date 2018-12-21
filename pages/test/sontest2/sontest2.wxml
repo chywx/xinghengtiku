@@ -1,0 +1,12 @@
+<!--pages/test/sontest2/sontest2.wxml-->
+<!-- bindtouchmove="touchmove" -->
+<view bindtouchstart="touchstart" bindtouchend="touchend" >
+  <view>pages/test/sontest2/sontest2.wxml</view>
+  <view>pages/test/sontest2/sontest2.wxml</view>
+  <view>pages/test/sontest2/sontest2.wxml</view>
+  <view>pages/test/sontest2/sontest2.wxml</view>
+  <view>pages/test/sontest2/sontest2.wxml</view>
+  <view>pages/test/sontest2/sontest2.wxml</view>
+</view>
+<view>x:{{startX}} y:{{startY}}</view>
+<view>x:{{endX}} y:{{endY}}</view>

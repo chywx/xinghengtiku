@@ -1,0 +1,17 @@
+/*答题卡*/
+.datika{position:absolute;bottom:51px;left:0;width:100%;display:flex;flex-direction: column;background-color:#fff;z-index:9;}
+.datika .dtk-bt{font-size:28rpx;background-color:#f2f2f2;padding:0 30rpx;height:30px;line-height:30px;border-bottom:1px solid #ddd;}
+.datika .dtk-tab{flex-direction: row;padding:30rpx;height:300px;overflow-y: scroll;}
+.datika .dtk-tab .btn-tab{width:16.66%;float:left;}
+.datika .dtk-tab text{width:100rpx;height:100rpx;border-radius:50rpx;display:block;background-color:#f2f2f2;margin:0 auto 10px;line-height:100rpx;text-align:center;}
+/*遮罩层*/
+.zhezhao{width:100%;position: fixed;top: 0;left: 0;background: #000;opacity: 0.2;overflow: hidden;z-index: 1;color: #fff;
+bottom:50px;}
+.show{display:block;}
+.hide{display:none;}
+
+.bgColor{background-color:#0b8cf9;}
+
+.tixingclass{
+  clear: both;padding: 15px;background-color: #e5e5f5;margin: 0 -13px 10px;wxcs_style_margin: 0 -30rpx 10px;
+}

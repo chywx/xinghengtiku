@@ -1,0 +1,87 @@
+<wxs module="filters" src="../../../utils/addmul.wxs"></wxs>
+<view class="banner">
+  <image src='' style="width:35rpx;height:34rpx;"></image>
+  <view class="banner_tab" bindtap='topTitle'>  
+    <text class="{{topTitle ? 'cur' : ''}}" >每日竞赛</text>
+    <text class="{{topTitle ? '' : 'cur'}}" >已参赛</text>
+  </view>
+  <image src='/images/newimage/ic_medal_btn.png' style="width:42rpx;height:42rpx;"></image>
+</view>
+<view class="mess" wx:if="{{topTitle}}">
+  <view class="mess-t">
+    <view class='toux'><image src='{{userProfilePhone}}'></image></view>
+    <view>
+      <view class="mess-rt">
+        今日<text class="orange">{{mrjsArr.list[0].ustatus==1 ? '已参赛':'未参赛'}}</text> 共参赛<text>{{mrjsArr.total.total ? mrjsArr.total.total:0}}次</text>
+      </view>
+      <view class='mess-rb'>
+        竞赛排名<text>{{mrjsArr.lastr.ranking ? mrjsArr.lastr.ranking:0}}</text>名 
+        共<text>{{mrjsArr.lastr.total?mrjsArr.lastr.total:0}}</text>人参赛
+        已经超过<text>{{filters.toFix2(mrjsArr.lastr.total - mrjsArr.lastr.ranking,mrjsArr.lastr.total)}}%</text>的人
+      </view>
+    </view>
+  </view>
+  <view class="progressbar">
+    <view class='point'></view>
+    <image src='/images/newimage/point.png' class='point_tb'></image>
+    <view class="pro1"><text class="textl">小白</text><text>书童</text></view>
+    <view class="pro2"><text>秀才</text></view>
+    <view class="pro3"><text>举人</text></view>
+    <view class="pro4"><text>进士</text></view>
+    <view class="pro5"><text>状元</text></view>
+  </view>
+</view>
+
+
+<view wx:if="{{topTitle}}" wx:for="{{mrjsArr.list}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+  <view class="title">{{item.testName}}</view>
+  <view class="cont">
+    <view class='contl'>
+      <view class="zhuanye">{{productName}}考试每日竞赛</view>
+      <view class="count">题目数量 {{item.numbers}} 参赛人数{{item.total}}</view>
+    </view>
+    <!-- 只有参赛这一种情况才是做题模式。 -->
+    <view class="contr" >
+      <navigator url="../mrylquestions/mrylquestions?testId={{item.testId}}&isExam=true" wx:if="{{item.ustatus != 1 && item.status == 1}}"><text class="btn-cansai">参赛</text></navigator>
+      <navigator url="../mrylquestions/mrylquestions?testId={{item.testId}}" wx:if="{{item.ustatus == 1}}"><image src='/images/newimage/mrjs/join_state_join.png'></image></navigator>
+      <navigator url="../mrylquestions/mrylquestions?testId={{item.testId}}" wx:if="{{item.ustatus == 0 && item.status != 1}}"><image src='/images/newimage/mrjs/join_state_no.png'></image></navigator>
+      <!-- 在这里加个判断“已超时” -->
+      <!-- <image src='/images/newimage/mrjs/join_state_over.png'></image> -->
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{!topTitle}}" wx:for="{{mrjsOver.list}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+  <view class="title">{{item.testName}}</view>
+  <view class="cont">
+    <view class='contl'>
+      <view class="zhuanye">{{productName}}考试每日竞赛</view>
+      <view class="count">正确率 {{filters.toFix2(item.rights,item.numbers)}}% 排名{{item.ranking}} 用时{{item.duration}}秒</view>
+    </view>
+    <view class="contr">
+      <navigator url="../mrylquestions/mrylquestions?testId=testId"><image src='/images/newimage/mrjs/join_state_join.png'></image></navigator>
+    </view>
+  </view>
+</view>
+
+
+
+
+<!-- 不一定都有数据，所以进行了三目判断 -->
+<!-- <view>
+  今日<text>{{mrjsArr.list[0].ustatus==1 ? '已参赛':'未参赛'}}</text> 共参赛<text>{{mrjsArr.total.total ? mrjsArr.total.total:0}}次</text>
+</view>
+<view>
+  竞赛排名<text>{{mrjsArr.last.ranking ? mrjsArr.last.ranking:0}}</text>名 共<text>{{mrjsArr.last.total?mrjsArr.last.total:0}}人参赛 
+  已经超过{{filters.toFix2(mrjsArr.last.total - mrjsArr.last.ranking,mrjsArr.last.total)}}%</text>的人
+</view>
+<view>******************</view>
+<view wx:for="{{mrjsArr.list}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+  <view>{{item.testName}}</view>
+  <view>{{productName}}考试每日竞赛</view>
+  <view>题目数量 {{item.numbers}} 参赛人数{{item.total}}</view>
+  <view wx:if="{{item.ustatus != 1 && item.status == 1}}">参赛</view>
+  <view wx:if="{{item.ustatus == 1}}">已参赛</view>
+  <view wx:if="{{item.ustatus == 0 && item.status != 1}}">未参赛</view>
+  <view>---</view>
+</view> -->

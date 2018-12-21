@@ -1,0 +1,12 @@
+<view class="add">
+  <view class="mess">
+    <text>已成功复制老师的微信号码啦~</text>
+    <text>快打开微信，加个好友吧！</text>
+  </view>
+  <view class="erweima">
+    <image src="/images/newimage/erweima.jpg"></image>
+  </view>
+  <text class="name">xinghengjiaofu007</text>
+  <view class="btn_add">
+    <image src="/images/newimage/tb_wx.png"></image>加老师微信 </view>
+</view>

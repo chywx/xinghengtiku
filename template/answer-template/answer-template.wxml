@@ -1,0 +1,83 @@
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
+<template name="answerTemplate">
+  <view class="ti-wen">
+    <text class="ti-wen-num">{{examId+1}} </text>
+    <text>{{newExamAsk.examAsk}}</text>
+    <view class="que-img" wx:for="{{newExamAsk.imgs}}" wx:key="0" wx:for-index="ids">
+      <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu'>
+      </image>
+      <text class="que-img-num">图{{ids+1}}</text>
+    </view>
+  </view>
+  <view class="ti-da">
+
+
+    <view wx:if="{{examType=='E'}}">\t</view>
+<!-- <view>{{filters.toInclude('abc','a')}}</view> -->
+<!-- bindchange="onRadioChange" 不绑定事件就可以了 -->
+    <radio-group class="radio-group"  id="{{questionId}}"
+                            data-index="{{examId+1}}" data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}"                                    data-index='{{index}}'  wx:if="{{examType == 'A' || examType == 'B' || examType == 'C'}}">
+      <label wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
+        <radio color="#0b8cf9" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" disabled="true"/>
+          <!-- <span wx:if="{{answer[questionId] == item.name}}" style="color:blue;">{{item.name}} </span>
+          <span wx:if="{{answer[questionId] != item.name}}">{{item.name}} </span> -->
+          <span class="{{examRight == item.name ? 'AA':''}}">{{item.name}} </span>
+
+        <!-- <block wx:if="{{item.value==null}}">
+          <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu'></image>
+        </block> -->
+        <block><span class="{{examRight == item.name ? 'AA':''}}">{{item.value}}</span></block>
+      </label>
+    </radio-group>
+
+  </view>
+  <view wx:if="{{beiti_logo}}" class="jiexi">
+    <view class="ti-right jiexi-da">
+      <view class="jiexi-da-l">
+        正确答案：
+        <text>{{examRight}}</text>
+      </view>
+      <!-- <view class="jiexi-da-c"> 
+        我的答案：
+        <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{answer[questionId]}}</text>
+      </view> -->
+      <view class="jiexi-da-r"><text bindtap='onComments' data-feedid='{{feedId}}'>{{examDataDetailObj[qid].notes}}评论</text></view>
+    </view>  
+    <view class="jiexi-li">
+      <view class="jiexi-li-l">
+      错题率：
+      <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{filters.toFix(examDataDetailObj[qid].wrongs,examDataDetailObj[qid].dos)}}% \t</text>
+      </view>
+      <view class="jiexi-li-r"><text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].favorites}}人收藏</text></view>
+    </view>
+    <view class="jiexi-li">      
+        <!-- <text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1}}</text> -->
+      <view class="comment1-description" style="display:flex;flex-direction:row;">
+        难度：
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=1? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=2? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=3? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=4? 'on': ''}}"></view>
+          <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=5? 'on': ''}}"></view>
+        </view>
+      </view>
+    </view>      
+      <!-- <text class="space">  </text> 评论数量：评论数暂且不搞。
+      <text class="{{'green'}}">{{examDataDetailObj[qid].}}人</text> -->
+    
+    <!-- <i-button bind:click="sortData" inline type="primary">按错题率排序</i-button>
+    <i-button bind:click="showWrong" inline type="error">只显示错题</i-button> -->
+    <view class="ti-resolve">
+      解析：<view></view>
+      <text>{{resolve.examResolve}}
+    </text>
+      <view class="que-img" wx:for="{{resolve.imgs}}" wx:key="0" wx:for-index="ids">
+        <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu'>
+        </image>
+        <text class="que-img-num">图{{ids+1}}</text>
+      </view>
+    </view>
+    <zj-biji noteText="{{threeData.notes[qid].Content}}" qid="{{qid}}" bind:delEvent="_delEvent" bind:confirmEvent="_confirmEvent"></zj-biji>
+  </view>
+</template>

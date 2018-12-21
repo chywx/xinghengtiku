@@ -1,0 +1,42 @@
+@import "../question-template/question-template.wxss"; 
+/*答案部分*/
+.ti .ti-right{margin-top:20px;padding-top:15px;border-top:1px dashed #ddd;}
+.ti .ti-right .space{padding-right:30rpx;}
+.ti .ti-right,
+.ti .ti-resolve{font-size:32rpx;margin-bottom:10px;text-align:justify;}
+.ti .ti-right text{color:#0b97f9;font-weight:bold;}
+.ti .ti-right .red{color:#f00;}
+.ti .ti-resolve text{font-size:30rpx;}
+.ti{overflow-y:auto;}
+.ti-wen{
+  width:100%;color: #0b97f9;
+  font-size:12px;
+
+}
+
+.vedio_play{
+  text-align: center;
+  font-size: 14px;
+  margin:30px 0;
+  color:#777;
+  border:1px #0b97f9 solid;
+  padding:6px 0;
+}
+.loadup_tu view{
+  width:100%;
+  display:initial;
+  margin:8px 0 0 0;
+  font:12px solid;
+}
+.radio-group{
+  display:flex;
+  flex-direction: column;
+}
+.radio-group label{
+  width:100%;
+  font-size:11px;
+  margin-top:3px;
+}
+.ti-da{
+  margin:0 0;
+}

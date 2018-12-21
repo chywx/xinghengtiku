@@ -1,0 +1,8 @@
+<template name="typeTemplate">
+  <view class="ti-type">
+    <text class="ti-type-l" wx:if="{{examType=='D' || examType=='V' || examType=='G' || examType=='C'|| examRight.length >= 2}}">多选题</text>
+    <text class="ti-type-l" wx:else>单选题</text>
+    <text wx:if="{{showShiJian == true}}"> 剩余时间：{{secondFormat}}</text> 
+    <text class="ti-count">{{examId+1}}/{{examSum}}</text>
+  </view>
+</template>

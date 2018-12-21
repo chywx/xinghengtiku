@@ -1,0 +1,44 @@
+var filters = {
+  // 进行错误率操作，没有数据进行了默认值操作
+  toFix: function (value1,value2) {
+    console.log('错误率',value1, value2);
+    // 当对应不上的时候，将其错误率设置为15%
+    //console.log(value1,'toFix',value2);
+    if(value1){
+      var v = value1 / value2 * 100;
+      return v.toFixed(1)//此处2为保留两位小数
+    }else{
+      var v = 15;
+      return v.toFixed(1);
+    }
+  },
+  // 计算两个数的百分比
+  toFix2: function (value1, value2) {
+    console.log('错误率', value1, value2);
+    if (value1) {
+      var v = value1 / value2 * 100;
+      return v.toFixed(1)//此处2为保留两位小数
+    } else {
+      var v = 0.0;
+      return v.toFixed(1);
+    }
+  },
+  toInclude:function(v1,v2){
+    //console.log(v1,v2,'123');
+    if(v1.indexOf(v2)==-1){
+      return false;
+    }else{
+      return true;
+    }
+  },
+  toIncludeFlag:function(v1,v2){
+    //console.log(v1,'toIncludeFlag',v2); //第一次全部初始化了，我去。 先注释了吧，打印的太多了。，
+    return v1.indexOf(v2);
+  }
+}
+module.exports = {
+  toFix: filters.toFix,
+  toFix2: filters.toFix2,
+  toInclude: filters.toInclude,
+  toIncludeFlag: filters.toIncludeFlag
+}

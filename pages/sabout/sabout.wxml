@@ -1,0 +1,89 @@
+<view class="tx_top">
+    <view class="photo">
+      <image src='{{userProfilePhone}}' class='touxiang'></image>
+      <!-- wx:if="{{isVip9 == true}}" -->
+      <image src='/images/newimage/tb_vip.png' wx:if="{{isVip9 == true}}" style="width:50rpx;height:50rpx;" class="vip" ></image>
+    </view>
+    <view class="xhname"><text>星恒学员</text> <image src='/images/newimage/girl.png' style="width:18rpx;height:30rpx;"></image></view>
+    <view class="zhuanye"><text>{{jcuser.userName}}</text> | <text style='color:blue;' bindtap='switchProductType'>{{productType}}</text></view>
+    <view class="top_tab">
+
+      <view class="tab_cont" bindtap='doShouCang'>
+        <image src='/images/newimage/tb_collect.png' style="width:40rpx;height:40rpx;"></image>
+        <text>收藏 {{threeData.favorites.length}}</text>
+      </view>
+
+      <view class="tab_cont tab_c2" bindtap='doCuoTi'>
+        <image src='/images/newimage/tb_wrong.png' style="width:40rpx;height:40rpx;"></image>
+        <text>错题 {{threeData.wrongs.length}}</text>
+      </view>
+
+      <view class="tab_cont" bindtap='doBiJi'>
+        <image src='/images/newimage/tb_note.png' style="width:40rpx;height:40rpx;"></image>
+        <text>笔记 {{notesCount}}</text>
+      </view>
+    </view>
+</view>
+<view class="service">
+  <view class="ser_l">
+    <image src='/images/newimage/king.png' style="width:70rpx;height:50rpx;"></image>
+    <view class="serl_font">
+      <text class="font_t">专属会员服务</text>
+      <text>专人提供QQ、电话咨询</text>
+    </view>
+  </view>
+  <view>
+    <image src='/images/newimage/phone.png' style="width:54rpx;height:54rpx;"></image>
+    <image src='/images/newimage/lxqq.png' style="width:54rpx;height:54rpx;" class="tuqq"></image>
+  </view>
+</view>
+<view class="tablink">
+  <view class="link_c">
+    <view class="link_li">
+      <image src='/images/newimage/tub1.png' style="width:37rpx;height:37rpx;"></image>
+      <text class="lzi">有奖推荐</text>
+    </view>
+    <view class="link_li">
+      <text class="rzi">获得5元现金红包</text>
+      <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
+    </view>
+  </view>
+  <view class="link_c">
+    <view class="link_li">
+      <image src='/images/newimage/tub2.png' style="width:37rpx;height:37rpx;"></image>
+      <text class="lzi">帮助中心</text>
+    </view>
+    <view class="link_li">
+      <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
+    </view>
+  </view>
+  <view class="link_c">
+    <view class="link_li">
+      <image src='/images/newimage/tub3.png' style="width:37rpx;height:37rpx;"></image>
+      <text class="lzi">代理加盟</text>
+    </view>
+    <view class="link_li">
+      <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
+    </view>
+  </view>
+  <view class="link_c" bindtap='clearCache'>
+    <view class="link_li">
+      <image src='/images/newimage/tub1.png' style="width:37rpx;height:37rpx;"></image>
+      <text class="lzi">清理缓存</text>
+    </view>
+    <view class="link_li">
+      <text class="rzi">{{cacheSize}}</text>
+      <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 
+<view>性别:男</view>
+<view>是否是vip:{{isVip9}}</view>
+<view>专业:{{jcuser.profession}}</view>
+
+<view>用户名:{{jcuser.userName}}</view>
+<view>收藏{{threeData.favorites.length}}</view>
+<view>错题{{threeData.wrongs.length}} </view>
+<view>笔记{{threeData.nodes.length}}</view> -->

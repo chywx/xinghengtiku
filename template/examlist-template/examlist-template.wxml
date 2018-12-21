@@ -1,0 +1,65 @@
+<template name="listTemplate">
+
+  <view wx:if="{{score==null}}" class="cont-mb">
+    <i-card title="{{listTitle}}" extra="{{listDate}}" i-class="cardKsInfo">
+      <view slot="content"  >
+        <i-row>
+          <i-col span="24">
+          总题数:{{ksNum}}
+          </i-col>
+          <i-col span="24">
+          <i-row>
+            <i-col span="12">
+              <i-button bind:click="listZcExam"  data-listId="{{id}}" data-kssc="{{ksSc}}" data-score="{{score}}" type="success" shape="circle" size="small">正常答题</i-button>
+            </i-col>
+             <i-col span="12">
+              <i-button bind:click="listExam"  data-listId="{{id}}" data-kssc="{{ksSc}}" data-score="{{score}}" type="success" shape="circle" size="small">题卡答题</i-button>
+            </i-col>
+          </i-row>
+          </i-col>
+        </i-row>
+      </view>
+    </i-card>
+  </view>
+  <view wx:else class="cont-mb">
+    <i-card title="{{listTitle}}" extra="{{listDate}}" i-class="cardKsInfo">
+      <view slot="content" data-listId="{{id}}" data-kssc="{{ksSc}}" data-score="{{score}}" catchtap="listExam">
+        <i-row>
+          <i-col span="12">
+          分数：{{score}}
+          </i-col>
+          <i-col span="12">
+          总题数:{{ksNum}}
+          </i-col>
+        </i-row>
+        <i-row>
+          <i-col span="24">
+          <i-button bind:click="listExam" data-listId="{{id}}" data-kssc="{{ksSc}}" data-score="{{score}}" type="success" shape="circle" size="small">查看答案</i-button>
+          </i-col>
+        </i-row>
+      </view>
+      <view slot="footer">
+        <i-row>
+          <i-col span="12" >
+          <i-button bind:click="paiming1" data-listId="{{id}}" inline type="primary" size="small">查看总排名</i-button>
+           
+          </i-col>
+          <i-col span="12" >
+           <i-button bind:click="paiming2" data-listId="{{id}}" inline type="primary" size="small">查看组内排名</i-button>
+           
+          </i-col>
+        </i-row>
+      </view>
+    </i-card>
+  </view>
+
+    
+  
+  <!-- <view class='list'>
+    <view class="list-title" data-listId="{{id}}" data-kssc="{{ksSc}}" data-score="{{score}}" catchtap="listExam">
+      <text class="num"></text>
+      <text class="title_cont">{{listDate}} {{listTitle}}</text>
+      <image src="{{tbUrl}}"></image>
+    </view>
+  </view> -->
+</template>

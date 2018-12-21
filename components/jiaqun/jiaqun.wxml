@@ -1,0 +1,17 @@
+<view class="{{status?'show':'hide'}}">
+  <view class="pop"></view>
+  <view class="wxpop">
+    <view class="wx">
+      <view class="title">和专业老师一起学习！</view>
+      <view class="lpz"><image src="/images/newimage/lpz.png"></image></view>
+      <view class="mess">
+      您的学习表现不错哦！小星为您提供了临床执业医师学习群：<text>281818187</text>，快来加入和专业老师们一起学习吧。
+      </view>
+    </view>
+    <view class="qun">
+      <view class="qun_l"><text>一键加群学习</text></view>
+      <view class="qun_r"><text>我已是群成员</text></view>
+    </view>
+    <view class="close"><image src="/images/newimage/close.png" bindtap="onClose"></image></view>
+  </view>
+</view>

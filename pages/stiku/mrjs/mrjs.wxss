@@ -1,0 +1,31 @@
+.banner{padding:0 30rpx;height:120rpx;background-color:#277bed;display:flex;align-items: center;justify-content: space-between;}
+.banner_tab{width:330rpx;background-color:#1a69ce;border-radius:200rpx;height:60rpx;display:flex;align-items: center;justify-content: space-between;}
+.banner_tab text{width:165rpx;height:60rpx;border-radius:50rpx;font-size:30rpx;color:#67a1eb;background-color:#1a69ce;text-align: center;line-height: 60rpx;}
+.banner_tab text.cur{color:#fff;background-color:#287ae6;box-shadow:1rpx 1rpx 1rpx 1rpx #3b8af0 inset;}
+.mess{width:100%;height:280rpx;background-color:#287ae6;padding:0 30rpx;}
+.mess-t{display:flex;flex-direction: row;align-items: center;margin-bottom:80rpx;}
+.mess-t .toux{width:105rpx;margin-right:30rpx;}
+.mess-t .toux image{width:105rpx;height:105rpx;border-radius:60rpx;border:1px solid #92bdf3;}
+.mess-t .orange{color: #f8ae4e;}
+.mess-t .mess-rt{font-size:30rpx;color:#fff;margin-bottom:15rpx;padding-top:20rpx;}
+.mess-t .mess-rb{font-size:24rpx;color:#fff;}
+.mess-t text{color:#fff;}
+.progressbar{display:flex;flex-direction: row;position:relative;}
+.progressbar .point{position:absolute;left:80rpx;top:-1rpx;width:14rpx;height:14rpx;background-color:#fff;border-radius:7rpx;z-index:99;}
+.progressbar .point_tb{position:absolute;left:66rpx;top:-55rpx;width:42rpx;height:42rpx;}
+.progressbar .pro1{display: flex;flex:1;height:10rpx;position:relative;background-color:#f8a986;}
+.progressbar .pro2{display: flex;flex:1;height:10rpx;position:relative;background-color:#f7e15b;}
+.progressbar .pro3{display: flex;flex:1;height:10rpx;position:relative;background-color:#86de82;}
+.progressbar .pro4{display: flex;flex:1;height:10rpx;position:relative;background-color:#6fa6f4;}
+.progressbar .pro5{display: flex;flex:1;height:10rpx;position:relative;background-color:#9d6de7;}
+.progressbar text{position:absolute;left:90rpx;top:15rpx;font-size:24rpx;color:#72adf9;}
+.progressbar .textl{position:absolute;left:0;top:15rpx;}
+.title{background-color:#f3f3f3;padding:0 30rpx;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;height:60rpx;line-height:60rpx;font-size:24rpx;color:#a2a2a2;}
+.cont{display:flex;align-items: center;padding:30rpx 30rpx;}
+.cont .contl{flex:1;}
+.cont .contl .zhuanye{font-size:28rpx;color:#c2c2c2;margin-bottom:16rpx;}
+.cont .contl .count{font-size:24rpx;color:#a2a2a2;}
+.cont .contr{text-align:right;}
+.cont .contr image{width:108rpx;height:43rpx;}
+.cont .contr .btn-cansai{width:108rpx;height:43rpx;border-radius:54rpx;text-align:center;border:1rpx solid #2471d7;color:#2471d7;font-size:28rpx;display:block;}
+

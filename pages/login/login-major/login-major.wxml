@@ -1,0 +1,15 @@
+<view class="container">
+  <scroll-view scroll-y="true" wx:key="lisItems" class="major-list" style="height:{{winHeight}}px;" 
+               scroll-into-view="{{scrollTopId}}" scroll-with-animation="true" >
+      <view class='mink' wx:for="{{list}}" wx:key="ulItems" wx:for-index="idx" wx:for-item="itemName">
+        <view class='mink-t' id='{{idx}}'>{{itemName[0].name}}</view>
+        <view class="mink-b">
+          <block wx:for="{{itemName}}" wx:for-index="idex" wx:key="liItems">
+            <view class="mink-b-items" wx:if="{{idex>0}}">
+              <text catchtap="choseMajor" data-majorName="{{item.desc}}" data-majorvalue="{{item.value}}">{{item.desc}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/test2/test2.wxml-->
+<text>pages/test2/test2.wxml</text>
+<button type="default">测试</button>
+<button type="default" size="mini">测试</button>
+<button type="primary">测试</button>
+<button type="warn">测试</button>
+<button type="warn" size="mini">测试</button>
+<button type="primary" loading="{{true}}">测试</button>
+
+<text>--------------</text>
+<checkbox-group bindchange="checkboxChange">
+  <label class="checkbox" wx:for="{{items}}" wx:key="{{index}}">
+    <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+  </label>
+</checkbox-group>
+
+<view class="comment1-description" style="display:flex;flex-direction:row;">
+  <view class="comment1-description1">描述相符</view>
+  <view class="star-pos" style="display:flex;flex-direction:row;">
+    <view class="stars  {{flag>=1? 'on': ''}}" bindtap="changeColor1"></view>
+    <view class="stars  {{flag>=2? 'on': ''}}" bindtap="changeColor2"></view>
+    <view class="stars  {{flag>=3? 'on': ''}}" bindtap="changeColor3"></view>
+    <view class="stars  {{flag>=4? 'on': ''}}" bindtap="changeColor4"></view>
+    <view class="stars  {{flag>=5? 'on': ''}}" bindtap="changeColor5"></view>
+  </view>
+</view>
+
+<view class="container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+  123
+</view>
+

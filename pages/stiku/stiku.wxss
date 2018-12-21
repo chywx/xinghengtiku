@@ -1,0 +1,31 @@
+/* pages/stiku/stiku.wxss */
+.top-tab{display:flex;flex-direction:row;padding:30rpx 0;}
+.top-tab .t_tb{display:flex;flex-direction:column;align-items:center;flex:1;}
+.top-tab .t_tb image{width:60rpx;height:62rpx;margin-bottom:14rpx;}
+.top-tab .t_tb text{font-size:28rpx;}
+.t-adv{border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;background-color:#f4f4f4;padding:15rpx 20rpx;
+justify-content:center;display:flex;}
+.t-adv image{width:690rpx;height:112rpx;}
+.title{border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;padding:30rpx;display:flex;flex-direction: row;
+justify-content:space-between;align-items:center;}
+.title_l{display:flex;align-items:center;}
+.title_r{display:flex;align-items:center;}
+.title image{width:30rpx;height:34rpx;}
+.title_l image{margin-right:10px;}
+.title_l text{font-size:16px;color:#323232;}
+.title_r image{margin-left:10px;}
+.title_r text{font-size:12px;color:#fc9720;}
+.zjlx-top{border-bottom:1px solid #dcdcdc;padding:0 30rpx;display:flex;align-items:center;}
+.bt_txt{font-size:30rpx;color:#323232;flex:1;display:flex;align-items:center;margin-bottom: -1px;}
+.bt_txt .btl{width:32rpx;height:100rpx;}
+.bt_txt .btl_open{width:28rpx;height:100rpx;}
+.bt_txt text{padding-left:10rpx;}
+.tb_jt{width:15rpx;height:29rpx;}
+.tb_jt2{width:29rpx;height:15rpx;}
+.zjlx-cont{padding-left:35rpx;background-color:#f4f4f4;display:flex;}
+.zjlx-cont .tb_li{width:20rpx;height:100rpx;}
+.zjlx-cont .cont{display:flex;align-items:center;justify-content:space-between;flex:1;border-bottom:1px solid #dcdcdc;
+padding:30rpx 0;}
+.zjlx-cont .cont text{font-size:28rpx;color:#323232;margin-left:10rpx;}
+.zjlx-cont .cont text .xiaohui{font-size:22rpx;color:#7a7a7a;}
+.zjlx-cont .cont image{width:32rpx;height:32rpx;margin-right:30rpx;}

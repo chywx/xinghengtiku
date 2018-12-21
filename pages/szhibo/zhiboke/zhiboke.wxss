@@ -1,0 +1,31 @@
+page{background-color:#f4f4f4;}
+.mm{display: flex;flex-direction: column;align-items: center;}
+.main{width:560rpx;height:800rpx;margin:220rpx;background-color:#fff;border:1px solid #dcdcdc;border-radius:20rpx;position:relative;
+display: flex;flex-direction: column;padding:30rpx;text-align:center;}
+.main.current{width:560rpx;height:830rpx;margin:120rpx 30rpx;}
+.main text.over{position:absolute;width:84rpx;height:38rpx;background-color:#297be7;color:#fff;font-size:22rpx;line-height:38rpx;text-align:center;right:30rpx;top:-39rpx;}
+.main .week{font-size:26rpx;color:#7a7a7a;margin-bottom:20rpx;text-align:left;}
+.main .main_c{display:flex;flex-direction: column;align-items: center;}
+.main .title{font-size:38rpx;color:#323232;margin:20rpx 0;}
+.main .timebt{font-size:28rpx;color:#7a7a7a;margin-bottom:60rpx;}
+.main .time{display:flex;flex-direction: row;justify-content: space-around;align-items: flex-end;font-size:24rpx;color:#7a7a7a;margin-bottom:60rpx;}
+.main .zi{margin:0 10rpx;}
+.main .time .tspan{display:block;width:86rpx;height:86rpx;background-color:#ff870f;border-radius:20rpx;font-size:46rpx;color:#fff;line-height:86rpx;text-align:center;}
+.main .teacher{font-size:28rpx;color:#7a7a7a;margin-bottom:10rpx;}
+.main .number{font-size:28rpx;color: #323232;margin-bottom:60rpx;}
+.main .btn_top{font-size:28rpx;color:#fff;background-color:#97c632;width:440rpx;border-radius:220rpx;padding:25rpx 0;margin-bottom:30rpx;}
+.main .btn_bom{font-size:28rpx;color:#97c632;border:1px solid #97c632;width:440rpx;border-radius:220rpx;padding:25rpx 0;}
+
+.pagenum{text-align:center;}
+.tiku{position:fixed;bottom:0;left:0;width:100%;height:140rpx;background-color:#000;opacity:.7;}
+.tk{position:fixed;bottom:0;left:0;width:100%;height:140rpx;display:flex;flex-direction: row;align-items: center;}
+.tk .tu_xtk{width:76rpx;height:76rpx;margin:0 20rpx;}
+.tk .tk_txt{flex:1;}
+.tk .tk_txt text{display:block;}
+.tk .xtk_name{font-size:30rpx;color:#fff;}
+.tk .xtk_desc{font-size:24rpx;color:#0187fe;}
+.tk .btn_xiazai{margin:0 20rpx;}
+.tk .btn_xiazai text{font-size:28rpx;color:#fff;background-color:#96c632;padding:10rpx 20rpx;border-radius:10rpx;}
+.tk .close{width:36rpx;height:36rpx;opacity:1;margin-left:20rpx;}
+.show{display:block;}
+.hide{display:none;}

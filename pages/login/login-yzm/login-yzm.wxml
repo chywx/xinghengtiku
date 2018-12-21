@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="code-bt">请输入手机验证码</view>
+  <view class="code">
+    <form>
+    <!-- password='true' -->
+      <input type="text" placeholder="手机验证码"  bindinput='loginYzm' /> 
+      <!-- <button bindtap="onButtonZhuce">登录</button> -->
+      <button bindgetuserinfo="onButtonZhuce" open-type="getUserInfo">登录</button>
+    </form>
+  </view>
+  <view class='forget'><span>(未收到验证码?)</span> <a id="resend" catchtap="onResend">重新获取</a></view>
+</view>

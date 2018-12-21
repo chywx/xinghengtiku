@@ -1,0 +1,27 @@
+page{background-color:#f4f4f4;}
+.tx_top{background:url('https://wxx.xinghengedu.com/img/about/toux_bg.jpg') no-repeat center top #fff;background-size:contain;
+display:flex;flex-direction: column;align-items:center;
+padding:30rpx 0;border-bottom:1px solid #dcdcdc;margin-bottom:10px;}
+.photo{position:relative;margin-bottom:16rpx;}
+.photo .touxiang{width: 168rpx;height: 168rpx;border:1px solid #f4f4f4;border-radius:84rpx;display:block;}
+.photo .vip{position:absolute;bottom: 0;right: 0;}
+.xhname{margin-bottom:16rpx;color:#297be8;font-size:36rpx;}
+.xhname text{margin-right:10rpx;}
+.zhuanye{color:#7a7a7a;font-size:26rpx;margin-bottom:30rpx;}
+.top_tab{display:flex;flex-direction: row;justify-content: space-around;width:100%;}
+.tab_cont{display:flex;align-items: center;flex:1;justify-content:center;}
+.tab_cont text{margin-left:5px;font-size:24rpx;color:#202020;}
+.tab_c2{border-left:1px solid #dcdcdc;border-right:1px solid #dcdcdc;}
+.service{background-color:#fff;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;padding:35rpx 30rpx;
+display:flex;flex-direction:row;align-items: center;justify-content: space-between;margin-bottom:10px;}
+.service .ser_l{display:flex;flex-direction: row;align-items: center;}
+.service .serl_font{padding-left:10px;}
+.service .serl_font text{font-size:24rpx;color:#7a7a7a;display: block;}
+.service .serl_font .font_t{font-size:30rpx;color:#202020;margin-bottom:10rpx;}
+.service .tuqq{margin-left:50rpx;}
+.tablink {border-top:1px solid #dcdcdc;}
+.tablink .link_c{border-bottom:1px solid #dcdcdc;background-color:#fff;padding:30rpx;display: flex;flex-direction: row;
+align-items: center;justify-content:space-between;}
+.tablink .lzi{font-size:30rpx;color:#202020;padding-left:10rpx;}
+.tablink .rzi{font-size:26rpx;color:#7a7a7a;padding-right:10rpx;margin-top:-1px;}
+.tablink .link_li{display: flex;align-items: center;}

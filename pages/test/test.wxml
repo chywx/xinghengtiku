@@ -1,0 +1,19 @@
+<view class="container">
+    <dialog id='dialogs' 
+      title='我是标题' 
+      content='恭喜你，学会了小程序组件' 
+      cancelText='知道了' 
+      confirm='谢谢你'
+      bind:delEvent="_delEvent"
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>
+    
+    <button type="primary" bindtap="showDialog"> ClickMe! </button>
+</view>
+<view>
+  <textarea value='1' placeholder="好记性不如烂笔头" style="height:100px;text-align: left;"></textarea>
+</view>
+
+
+<view bindtap='aa'></view>

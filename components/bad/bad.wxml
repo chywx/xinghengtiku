@@ -1,0 +1,25 @@
+<view class="{{status?'show':'hide'}}">
+  <view class="pop"></view>
+  <view class="wxpop">
+    <view class="pop_t">
+      <view class="good"><image src="/images/newimage/bad.png"></image></view>
+      <view class="sum"><text>56</text>分</view>
+      <view class="count">
+        <view>答对120题</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>正确率75%</view> 
+        <image src="/images/newimage/shuxian.png"></image>
+        <view>耗时 00:50</view> 
+      </view>
+    </view>
+    <view class="pop_c">
+      <view class="xuanyao"><text>炫耀一下</text></view>
+      <view class="chacuo"><text>查看错题</text></view>
+    </view>
+    <view class="pop_b">
+      <view>重新闯关</view>
+      <view>下一章节</view>
+    </view>
+    <view class="close"><image src="/images/newimage/close.png" bindtap="onClose"></image></view>
+  </view>
+</view>

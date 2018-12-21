@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/login/login-tel/login-tel",
+    "pages/login/login-yzm/login-yzm",
+    "pages/login/login-major/login-major",
+    "pages/stiku/stiku",
+    "pages/svideo/svideo",
+    "pages/szhibo/szhibo",
+    "pages/szhibo/zhiboke/zhiboke",
+    "pages/sabout/sabout",
+    "pages/test/test",
+    "pages/stiku/zjlx/zjlx",
+    "pages/login/login",
+    "pages/test2/test2",
+    "pages/test3/test3",
+    "pages/stiku/exercise/exercise",
+    "pages/stiku/comments/comments",
+    "pages/saddteacher/saddteacher",
+    "pages/test/sontest1/sontest1",
+    "pages/test/sontest2/sontest2",
+    "pages/stiku/mrjs/mrjs",
+    "pages/stiku/mrylquestions/mrylquestions",
+    "pages/sabout/shoucang/shoucang"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0b97f9",
+    "navigationBarTitleText": "home",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#666",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#56abe4",
+    "backgroundColor": "#ddd",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/stiku/stiku",
+        "iconPath": "images/tabbar/题库.png",
+        "selectedIconPath": "images/tabbar/题库2.png",
+        "text": "题库"
+      },
+      {
+        "pagePath": "pages/sabout/sabout",
+        "iconPath": "images/tabbar/我的.png",
+        "selectedIconPath": "images/tabbar/我的2.png",
+        "text": "我的"
+      }
+    ],
+    "position": "bottom"
+  }
+}

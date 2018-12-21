@@ -1,0 +1,149 @@
+<view class="top">
+  <view>第五十二周课表</view>
+  <view class="seek">查看直播记录</view>
+</view>
+<view class="month">2月</view>
+<view class="cont">
+  <view class="day">
+    <text>27日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_huifang">看回放</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cont">
+  <view class="day">
+    <text>27日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main" style="border:none;">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_zhibo">直播中</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="month">3月</view>
+<view class="cont">
+  <view class="day">
+    <text>28日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_yiyuyue">已预约</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cont">
+  <view class="day">
+    <text>28日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_weiyuyue">未预约</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cont">
+  <view class="day">
+    <text>28日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_weiyuyue">未预约</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cont">
+  <view class="day">
+    <text>28日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_weiyuyue">未预约</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cont">
+  <view class="day">
+    <text>28日</text>
+    <view class="xian"></view>
+  </view>
+  <view class="main" style="border:none;">
+    <image src="/images/newimage/liujiang.png" class="teacher"></image>
+    <view class="main_r">
+      <view class="maint">
+        <view class="kcname">神经精神系统一</view>
+        <view class="yuyue"><text class="num">1234</text>人已预约</view>
+      </view>
+      <view class="mainb">
+      <view class="kcmess"><image src="/images/newimage/tb_clock.png" class="tb_clock"></image><text class="time">19:30 - 21:30</text> 刘江</view>
+      <view class="look"><text class="btn_weiyuyue">未预约</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 蹭课规则弹窗 -->
+<zj-regular style="display:none;"></zj-regular>
+<!-- 加老师微信弹窗 -->
+<zj-wxpop style="display:none;"></zj-wxpop>
+<!-- 加QQ群弹窗 -->
+<zj-jiaqun style="display:none;"></zj-jiaqun>
+<!-- 做题通关弹窗 -->
+<zj-good goodOrBad="good" rights="3" duration="12" bind:onClose="_onClose"></zj-good>
+<!-- 做题成绩不佳弹窗 -->
+<zj-bad style="display:none;"></zj-bad>

@@ -1,0 +1,22 @@
+<template name="gatheritem">
+  <view class="ti-wen">
+    <text class="ti-wen-num">{{num}}.</text>
+    <text> {{preTestSubject+testSubject}}</text>
+  </view>
+  <view>
+    <image style="width: 200px; height: 200px;" wx:if="{{ptsImg!='' && ptsImg!= null}}" src='{{basePath+ptsImg}}' bindtap='imgYu' data-src='{{basePath+ptsImg}}'></image>
+  </view>
+  <view class="ti-da" wx:if="{{questionType!='E'}}">
+  <label class="radio" wx:for="{{examAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx" wx:if="{{item.value!=null}}"  >
+      <text>{{item.name}}: {{item.value}}</text>
+  </label>
+  </view>
+  <view class="ti-right">
+    答案：
+    <text>{{questionAnswer}}</text>
+  </view>
+  <view class="ti-resolve" wx:if="{{analysis!=null && analysis!= ''}}">
+    解析：
+    <text>{{analysis}}</text>
+  </view>
+</template>

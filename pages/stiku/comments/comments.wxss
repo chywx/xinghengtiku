@@ -1,0 +1,14 @@
+.pingl_t{margin-bottom:100rpx;}
+.pinglun{border-bottom:1px solid #dcdcdc;padding:30rpx;display:flex;font-size:28rpx;color:#7a7a7a;}
+.pinglun .pl_l{margin-right:20rpx;}
+.pinglun .pl_l image{width:120rpx;height:120rpx;border-radius:60rpx;}
+.pinglun .pl_c{flex:1;padding-right:10px;}
+.pinglun .pl_c .users{margin-bottom:5px;}
+.pinglun .pl_c .time{color:#b5b5b5;margin-bottom:5px;}
+.pinglun .pl_c .discuss{color:#202020;font-size:32rpx;text-align:justify;}
+.pinglun .pl_r{text-align:right;}
+.pinglun .pl_r image{width:40rpx;height:38rpx;}
+.pinglun .pl_r text{margin-left:5px;font-size:32rpx;float:right;}
+.pl_txt{position:fixed;bottom:0;left:0;width:100%;color:#888;font-size:24rpx;padding:20rpx 30rpx;background-color:#fff;}
+.set_pinglun{display:flex;align-items: center;}
+.set_pinglun input{background-color:#dcdcdc;border-radius:5px;flex:1;margin-right:10px;padding:0 10px;}

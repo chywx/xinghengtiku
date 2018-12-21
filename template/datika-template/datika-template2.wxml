@@ -1,0 +1,16 @@
+<template name="datikaTemplate">
+  <view class="datika" wx:if="{{showStatus==true}}">
+    <view class="dtk-bt">共{{examData.length}}题{{explain}}</view>
+    <view class="dtk-tab">
+
+<!-- 乐姐不在，这块先不区分题型了 -->
+      <block wx:for="{{examData}}" wx:key="navItems" wx:for-index="idx" wx:for-item="count"  wx:if="{{count.isshow!=false}}">
+          <view catchtap='onTabNum' class="btn-tab" data-num="{{count.index+1}}">
+            <text wx:if='{{showJiaojuan==false}}' style="background-color:{{count.examMine==null?'':(count.examRight==count.examMine?'#0b8cf9':'#f00')}};color:{{count.examMine==null?'':'#fff'}};">{{count.examId+1}}</text>
+            <text wx:else='{{showJiaojuan==true}}' style="{{'1'==count.yzt ||answers[count.questionId] != null?'background-color:#0b8cf9;color:#fff;':''}}{{idx==examcurrent?'background-color:#f9b90b;color:#fff;':''}}">{{count.examId+1}}</text>
+          </view>
+      </block>
+    </view>
+  </view>
+  <view class="zhezhao" wx:if="{{showStatus==true}}"></view>
+</template>

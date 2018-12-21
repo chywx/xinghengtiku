@@ -1,0 +1,45 @@
+<template name="datikaTemplate">
+  <view class="datika" wx:if="{{showStatus==true}}">
+    <view class="dtk-bt">共{{examData.length}}题{{explain}}</view>
+    <view class="dtk-tab">
+
+
+      <!-- if 里面进行&&操作，需要添加括号 -->
+      <view class="tixingclass">最佳选择题</view>
+      <block wx:for="{{examData}}" wx:key="navItems" wx:for-index="idx" wx:for-item="count" wx:if="{{(count.isshow!=false) && (count.examType == 'A')}}">
+        <view catchtap='onTabNum' class="btn-tab" data-num="{{count.index+1}}">
+          <text wx:if='{{showJiaojuan==false}}' style="background-color:{{count.examMine==null?'':(count.examRight==count.examMine?'#0b8cf9':'#f00')}};color:{{count.examMine==null?'':'#fff'}};">{{count.examId+1}}</text>
+          <text wx:else='{{showJiaojuan==true}}' style="{{'1'==count.yzt ||answers[count.questionId] != null?'background-color:#0b8cf9;color:#fff;':''}}{{idx==examcurrent?'background-color:#f9b90b;color:#fff;':''}}">{{count.examId+1}}</text>
+        </view>
+      </block>
+
+      <view class="tixingclass">配伍题</view>
+      <block wx:for="{{examData}}" wx:key="navItems" wx:for-index="idx" wx:for-item="count" wx:if="{{(count.isshow!=false) && (count.examType == 'B')}}">
+        <view catchtap='onTabNum' class="btn-tab" data-num="{{count.index+1}}">
+          <text wx:if='{{showJiaojuan==false}}' style="background-color:{{count.examMine==null?'':(count.examRight==count.examMine?'#0b8cf9':'#f00')}};color:{{count.examMine==null?'':'#fff'}};">{{count.examId+1}}</text>
+          <text wx:else='{{showJiaojuan==true}}' style="{{'1'==count.yzt ||answers[count.questionId] != null?'background-color:#0b8cf9;color:#fff;':''}}{{idx==examcurrent?'background-color:#f9b90b;color:#fff;':''}}">{{count.examId+1}}</text>
+        </view>
+      </block>
+
+      <view class="tixingclass">A3/A4题型</view>
+      <block wx:for="{{examData}}" wx:key="navItems" wx:for-index="idx" wx:for-item="count" wx:if="{{(count.isshow!=false) && (count.examType == 'C')}}">
+        <view catchtap='onTabNum' class="btn-tab" data-num="{{count.index+1}}">
+          <text wx:if='{{showJiaojuan==false}}' style="background-color:{{count.examMine==null?'':(count.examRight==count.examMine?'#0b8cf9':'#f00')}};color:{{count.examMine==null?'':'#fff'}};">{{count.examId+1}}</text>
+          <text wx:else='{{showJiaojuan==true}}' style="{{'1'==count.yzt ||answers[count.questionId] != null?'background-color:#0b8cf9;color:#fff;':''}}{{idx==examcurrent?'background-color:#f9b90b;color:#fff;':''}}">{{count.examId+1}}</text>
+        </view>
+      </block>
+
+      <view class="tixingclass">多选题</view>
+      <block wx:for="{{examData}}" wx:key="navItems" wx:for-index="idx" wx:for-item="count" wx:if="{{(count.isshow!=false) && (count.examType == 'D')}}">
+        <view catchtap='onTabNum' class="btn-tab" data-num="{{count.index+1}}">
+          <text wx:if='{{showJiaojuan==false}}' style="background-color:{{count.examMine==null?'':(count.examRight==count.examMine?'#0b8cf9':'#f00')}};color:{{count.examMine==null?'':'#fff'}};">{{count.examId+1}}</text>
+          <text wx:else='{{showJiaojuan==true}}' style="{{'1'==count.yzt ||answers[count.questionId] != null?'background-color:#0b8cf9;color:#fff;':''}}{{idx==examcurrent?'background-color:#f9b90b;color:#fff;':''}}">{{count.examId+1}}</text>
+        </view>
+      </block>
+
+
+
+    </view>
+  </view>
+  <view class="zhezhao" wx:if="{{showStatus==true}}"></view>
+</template>

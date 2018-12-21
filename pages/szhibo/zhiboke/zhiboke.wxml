@@ -1,0 +1,34 @@
+
+<view class="mm">
+  <view class="main current">
+    <text class="over">已结束</text>
+    <view class="week">第九周直播课程</view>
+    <view class="main_c">
+      <view class="title">神经精神系统-1</view>
+      <view class="timebt">开课时间</view>
+      <view class="time">
+        <text class="tspan">07</text><text class="zi">月</text>
+        <text class="tspan">07</text><text class="zi">日</text>
+        <text class="tspan">19</text><text class="zi">：</text><text class="tspan">30</text>
+      </view>
+      <view class="teacher">主讲老师：刘江</view>
+      <view class="number">12346人已成功看课</view>
+      <view class="btn_top">2元购买课程回放</view>
+      <view class="btn_bom">咨询教辅</view>
+    </view>
+  </view>      
+</view>
+
+<view class="pagenum">2/8</view>
+<view class="{{status?'show':'hide'}}">
+  <view class="tiku"></view>
+  <view class="tk">
+    <image src="/images/newimage/tb_close.png" class="close" bindtap='onClose'></image>
+    <image src="/images/newimage/tb_xtk.png" class="tu_xtk"></image>
+    <view class="tk_txt">
+      <text class="xtk_name">星题库 医师考试通关神器</text>
+      <text class="xtk_desc">使用软件 直播更流畅 复习更高效</text>
+    </view>
+    <view class="btn_xiazai"><text>马上下载</text></view>
+  </view>
+</view>

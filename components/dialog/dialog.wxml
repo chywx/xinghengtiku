@@ -1,0 +1,13 @@
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <!-- <view class='wx-dialog-title'>{{ title }}</view> -->
+        <!-- <view class='wx-dialog-content'>{{ content }}</view> -->
+        <textarea placeholder="好记性不如烂笔头" bindinput='nodeText' style="height:100px;text-align: left;"></textarea>
+        <view class='wx-dialog-footer'>
+          <view class='wx-dialog-btn' catchtap='_delEvent'>{{ delText }}</view>
+          <view class='wx-dialog-btn' catchtap='_cancelEvent'>{{ cancelText }}</view>
+          <view class='wx-dialog-btn' catchtap='_confirmEvent'>{{ confirmText }}</view>
+        </view>
+    </view>
+</view>

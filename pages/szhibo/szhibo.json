@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "直播课程表",
+  "navigationBarBackgroundColor": "#297be8",
+  "usingComponents": {
+    "zj-regular": "../../components/regular/regular",
+    "zj-wxpop": "../../components/wxpop/wxpop",
+    "zj-jiaqun": "../../components/jiaqun/jiaqun",
+    "zj-good": "../../components/good/good",
+    "zj-bad": "../../components/bad/bad"
+  }
+}

@@ -1,0 +1,65 @@
+<!--pages/stiku/stiku.wxml-->
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
+<view class="top-tab">
+  <view class="t_tb" bindtap='to_gpkd'>
+    <image src='/images/newimage/gpkt.png'></image>
+    <text>高频考题</text>
+  </view>
+  <view class="t_tb" bindtap='to_mnks'>
+    <image src='/images/newimage/mnks.png'></image>
+    <text>模拟考试</text>
+  </view>
+  <view class="t_tb" bindtap='to_mrjs'>
+    <image src='/images/newimage/mrjs.png'></image>
+    <text>每日竞赛</text>
+  </view>
+</view>
+<view class="t-adv">
+  <image src='/images/newimage/logoactivity.png' bindtap='banMethod'></image>
+</view>
+<block>
+  <view class="title">
+    <view class="title_l">
+      <image src='/images/newimage/text_tb.png'></image>
+      <text>章节练习</text>
+    </view>
+    <view class="title_r">
+      <!-- <button  open-type="share"></button> -->
+      <!-- <text>分享到朋友圈解锁全部免费试题</text> -->
+      <image src='/images/newimage/clock_tb.png'></image>
+    </view>
+  </view>
+
+
+
+        <!-- <view>{{filters.toFix(hehe,haha)}}</view> -->
+  <!-- <progress percent="40" stroke-width="1" /> -->
+
+  <view wx:for="{{lists}}" wx:for-item="item" wx:key="id" data-index="{{index}}" bindtap='loadSon'>
+    <view></view>
+    <!--章节-->
+    <view class="zjlx-top">
+      <view class="bt_txt">
+        <image wx:if="{{!item.open}}" class="btl" src='/images/newimage/tb_btl.png'></image>
+        <image wx:if="{{item.open}}" class="btl_open" src='/images/newimage/tb_btl_open.png'></image>
+        <text>{{item.charpterName}}</text>
+      </view>
+      <image wx:if="{{!item.open}}" class="tb_jt" src='/images/newimage/tb_right_jt.png'></image>
+      <image wx:if="{{item.open}}" class="tb_jt2" src='/images/newimage/tb_bom_jt.png'></image>
+    </view>
+    <!--章节详细列表-->
+    <view class='zjlx-cont' wx:for="{{item.lists}}" wx:key="index" wx:for-item="item2" data-charpterid="{{item2.charpterId}}" hidden='{{!item.open}}' bindtap='redirectToMethod'>     
+        <image wx:if="{{item.lists.length > index+1}}" class="tb_li" src='/images/newimage/tb_finishl.png'></image>
+        <image wx:if="{{item.lists.length == index+1}}" class="tb_li" src='/images/newimage/tb_editl2.png'></image>
+        <image wx:if="{{false}}" class="tb_li" src='/images/newimage/tb_finishl.png'></image>
+        <image wx:if="{{false}}" class="tb_li" src='/images/newimage/tb_finishl2.png'></image>
+      <view class="cont">
+        <text decode="{{true}}" space="{{true}}">{{item2.charpterName}} ({{item2.questionCount}}题)<span class="count"></span></text>
+        <image wx:if="{{true}}" src='/images/newimage/tb_edit.png'></image>
+        <image wx:if="{{false}}" src='/images/newimage/tb_finish.png'></image>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- <official-account></official-account> -->
