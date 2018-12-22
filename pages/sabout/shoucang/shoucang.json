@@ -1,3 +1,16 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "收藏",
+  "disableScroll": true,
+  "usingComponents": {
+    "i-tabs": "../../../iviewapp/tabs/index",
+    "i-tab": "../../../iviewapp/tab/index",
+    "i-panel": "../../../iviewapp/panel/index",
+    "i-tab-bar": "../../../iviewapp/tab-bar/index",
+    "i-tab-bar-item": "../../../iviewapp/tab-bar-item/index",
+    "i-icon": "../../../iviewapp/icon/index",
+    "i-grid": "../../../iviewapp/grid/index",
+    "i-grid-item": "../../../iviewapp/grid-item/index",
+    "i-button": "../../../iviewapp/button/index",
+    "zj-biji": "../../../components/biji/biji"
+  }
 }

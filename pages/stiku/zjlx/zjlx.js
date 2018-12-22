@@ -1,4 +1,4 @@
-var util = require("../../../utils/util.js");
+// var util = require("../../../utils/util.js");
 var requestUtil = require("../../../utils/requestUtil.js");
 var answers = {};
 var ksid = '';
@@ -36,6 +36,9 @@ Page({
   onLoad: function (option) {
    //对于章节练习而言，ksid考试id就是章节id .初始化数据，章节id，专业，手机号码
     ksid = option.ksid;
+    if(wx.getStorageSync("ksid_"+ksid)){
+      wx.removeStorageSync("ksid_" + ksid);
+    }
     productType = wx.getStorageSync('productType');
     phone = wx.getStorageSync('phone');
     var that = this;
@@ -44,9 +47,9 @@ Page({
       shoucang:true
     })
     //如果本地缓存没有数据，就进行查询操作。
-    if (wx.getStorageSync("examDataDetail" + ksid)){
+    if (wx.getStorageSync("examDataDetail_" + ksid)){
       that.setData({
-        examDataDetailObj: wx.getStorageSync("examDataDetail" +ksid),
+        examDataDetailObj: wx.getStorageSync("examDataDetail_" +ksid),
       })
     }else{
       that.getExamDataDetailMethod(that,ksid);
@@ -123,7 +126,7 @@ Page({
           examDataDetailMap[returnDataArr[i].questionId] = returnDataArr[i];
         }
         console.log(examDataDetailMap);
-        wx.setStorageSync("examDataDetail" + ksid, examDataDetailMap);
+        wx.setStorageSync("examDataDetail_" + ksid, examDataDetailMap);
         that.setData({
           examDataDetailObj: examDataDetailMap
         })
@@ -260,12 +263,12 @@ Page({
    * 单选题选择答案
    */
   onRadioChange: function (e) {
-    console.log(e);
+    console.log("onRadioChange",e);
     console.log('exam-detail.js function onRadioChange()');
     var questionId = e.currentTarget.id;// 题目id
     var value = e.detail.value;// 用户选的答案
     answers[questionId] = value;// 存入map
-    wx.setStorageSync('ksid' + ksid, answers);// 存入缓存内
+    wx.setStorageSync('ksid_' + ksid, answers);// 存入缓存内
     if (this.data.examcurrent < this.data.examData.length - 1) {
       var mine = "examData[" + this.data.examcurrent + "].yzt";
       var showParse = "examData["+this.data.examcurrent+"].showParse";
@@ -340,7 +343,7 @@ Page({
     var value = e.detail.value;// 用户选的答案
     console.log(value.sort().join(''));
     answers[questionId] = value.sort().join('');// 存入map
-    wx.setStorageSync('ksid' + ksid, answers);// 存入缓存内
+    wx.setStorageSync('ksid_' + ksid, answers);// 存入缓存内
     var index = e.currentTarget.dataset.index;
 
     if (this.data.examcurrent < this.data.examData.length - 1) {
@@ -412,124 +415,4 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);//返回角度 /Math.atan()返回数字的反正切值
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // 交卷
-  // 提交表单数据
-  // formSubmit: function (e) {
-  //   console.log('交卷 exam-detail.js function formSubmit()');
-  //   var that = this;
-  //   that.setData({
-  //     submitAnswer: true
-  //   });
-  //   wx.showModal({
-  //     title: '提示',
-  //     content: '确定交卷？',
-  //     success: function (res) {
-  //       console.log(res);
-  //       if (res.confirm) {
-  //         console.log('确定交卷');
-  //         that.saveAnswers();
-  //       } else if (res.cancel) {
-  //         console.log('取消交卷');
-  //       }
-  //     }
-  //   })
-  // },
-
-  /**
-   * 保存答案
-   */
-  // saveAnswers: function () {
-  //   var that = this;
-  //   var endDate = new Date();// 交卷时间
-  //   var ansString = JSON.stringify(wx.getStorageSync('ksid' + ksid));
-  //   wx.request({
-  //     url: getApp().data.basePath + '/savaAnsows.do',
-  //     method: 'POST',
-  //     data: {
-  //       userid: phone,
-  //       ksid: ksid,
-  //       answers: ansString,
-  //       endDate: endDate.toString(),
-  //       belonger: wx.getStorageSync('belonger')
-  //     },
-  //     header: {
-  //       'content-type': 'application/x-www-form-urlencoded'
-  //     },
-  //     success: function (res) {
-  //       wx.removeStorageSync('ksid' + ksid);
-  //       var backurl = that.data.backurl;
-  //       if (backurl != null) {
-  //         wx.reLaunch({
-  //           url: backurl,
-  //         })
-  //       } else {
-  //         wx.reLaunch({
-  //           url: '../exam'
-  //         });
-  //       }
-  //     }
-  //   })
-  // },
-
-  /**
-   * 考试倒计时
-   */
-  // countdown: function (that) {
-  //   var v = that.data.kssc;
-  //   if (v <= 0) {
-  //     that.setData({
-  //       kssc: 0,
-  //       ksscFormat: '00:00'
-  //     });
-  //     that.setData({
-  //       submitAnswer: true
-  //     });
-  //     that.formSubmit();
-  //   } else {
-  //     setTimeout(function () {
-  //       that.setData({
-  //         kssc: v - 1,
-  //         ksscFormat: dateformat(v - 1)
-  //       });
-  //       that.countdown(that);
-  //     }, 1000)
-  //   }
-  // },
-
-  /**
-   * 保存倒计时到缓存里
-   */
-  // saveCountdown2cache: function () {
-  //   console.log('exam-detail.js function saveCountdown2cache()');
-  //   var flag = this.data.submitAnswer;
-  //   if (!flag) {
-  //     wx.setStorageSync('kssc' + ksid, this.data.kssc);
-  //   }
-  // }, 
-
-  // imgYu: function (event) {
-  //   var src = event.currentTarget.dataset.src;//获取data-src
-  //   //图片预览
-  //   console.log(src)
-  //   wx.previewImage({
-  //     current: src, // 当前显示图片的http链接
-  //     urls: [src]
-  //   })
-  // },
-
-  
 })

@@ -1,1 +1,7 @@
-/* pages/sabout/shoucang.wxss */
+@import "../../../template/type-template/type-template.wxss";
+@import "../../../template/question-template/question-template.wxss";
+@import "../../../template/datika-template/datika-template.wxss";
+@import "../../../template/listbutton-template/listbutton-template.wxss";
+@import "../../../template/answer-template/answer-template.wxss";
+.container{align-items: stretch;}
+.ti{flex-direction: column;padding:30rpx;box-sizing:border-box;text-align: justify;}
