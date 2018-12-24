@@ -1,6 +1,6 @@
 var requestUtil = require("../../../utils/requestUtil.js");
 var answers = {};
-var ksid = 'shoucang';
+var ksid = '';
 var phone = '';  
 var productType = null;
 
@@ -33,66 +33,104 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (wx.getStorageSync("ksid_" + ksid)) {
-      wx.removeStorageSync("ksid_" + ksid);
+    ksid = options.purpose;
+    var threeData = wx.getStorageSync("threeData");
+    console.log("onload",ksid);
+    var questionIds = [];
+    if(ksid == 'shoucang'){
+      wx.setNavigationBarTitle({
+        title: '收藏',
+      })
+      questionIds = threeData.favorites;
+    }else if(ksid == 'cuoti'){
+      wx.setNavigationBarTitle({
+        title: '错题',
+      })
+      questionIds = threeData.wrongs
+    }else if(ksid == 'biji'){
+      wx.setNavigationBarTitle({
+        title: '笔记',
+      })
+      for (var key in threeData.notes) {
+        questionIds.push(key);
+      }
     }
-    var that = this;
-    console.log("shoucang onload");
-    wx.showLoading({
-      title: '正在加载中',
-    })
-    wx.request({
-      url: getApp().data.basePath + '/TiKu/doShouCang.do',
-      method: 'POST',
-      data: {
-        questionIds: wx.getStorageSync("threeData").favorites,//JSON.stringify(threeData.favorites)
-        productType: wx.getStorageSync("productType")
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log("doShouCang",res.data);
-        var temp = res.data.list;
-        for (var i = 0; i < temp.length; i++) {
-          temp[i].examId = i;//目前是为了中和杨云的展示。
-          temp[i].index = i;//点击背题的时候再进行答案显示。
-          temp[i].showParse = false;//展示解析，默认为FALSE。
+    console.log(questionIds.length);
+    if(questionIds.length == 0){
+      wx.showToast({
+        title: '您尚未操作记录',
+        icon: 'loading',
+      })
+      setTimeout(function(){
+        wx.navigateBack({
+          delta: 1
+        })
+      },1000)
+    }else{
+      var that = this;
+      that.setData({
+        threeData: threeData,
+        shoucang: true
+      })
+      if (wx.getStorageSync("ksid_" + ksid)) {
+        wx.removeStorageSync("ksid_" + ksid);
+      }
+      wx.showLoading({
+        title: '正在加载中',
+      })
+      wx.request({
+        url: getApp().data.basePath + '/TiKu/doShouCang.do',
+        method: 'POST',
+        data: {
+          questionIds: questionIds,//threeData.favorites,//JSON.stringify(threeData.favorites)
+          productType: wx.getStorageSync("productType")
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          console.log("doShouCang",res.data);
+          var temp = res.data.list;
+          for (var i = 0; i < temp.length; i++) {
+            temp[i].examId = i;//目前是为了中和杨云的展示。
+            temp[i].index = i;//点击背题的时候再进行答案显示。
+            temp[i].showParse = false;//展示解析，默认为FALSE。
+          }
+          that.setData({
+            examData: temp,
+            examSum: temp.length
+          })
+          wx.hideLoading();//数据赋值成功进行隐藏，虽然知道这顺序不对，不过也够了。
         }
-        that.setData({
-          examData: temp,
-          examSum: temp.length
-        })
-        wx.hideLoading();//数据赋值成功进行隐藏，虽然知道这顺序不对，不过也够了。
-      }
-    })
-    wx.request({
-      url: getApp().data.basePath + '/TiKu/getNotesByQuestionId.do',
-      method: 'POST',
-      data: {
-        questionIds: wx.getStorageSync("threeData").favorites,
-        productType: wx.getStorageSync("productType")
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        console.log("getNotesByQuestionId",res.data);
-        that.setData({
-          examDataDetailObj:res.data.list
-        })
-      }
-    })
+      })
+      wx.request({
+        url: getApp().data.basePath + '/TiKu/getNotesByQuestionId.do',
+        method: 'POST',
+        data: {
+          questionIds: wx.getStorageSync("threeData").favorites,
+          productType: wx.getStorageSync("productType")
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          console.log("getNotesByQuestionId",res.data);
+          that.setData({
+            examDataDetailObj:res.data.list
+          })
+        }
+      })
 
-    //当前页面的高度
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight
-        });
-      }
-    });
+      //当前页面的高度
+      wx.getSystemInfo({
+        success: function (res) {
+          that.setData({
+            winWidth: res.windowWidth,
+            winHeight: res.windowHeight
+          });
+        }
+      });
+    }
   },
 
 
@@ -102,7 +140,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log("shoucang onReady");
+    // console.log("shoucang onReady");
     // wx.hideLoading();
   },
 
@@ -151,6 +189,98 @@ Page({
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  onShoucang: function (e) {
+    var that = this;
+    var qid = e.currentTarget.dataset.qid;
+    requestUtil.onShoucangUtil(that, qid, phone, productType);
+  },
+
+  _delEvent: function (res) {
+    var tdata = this.data.threeData;
+    console.log('删除的回调', res.detail, tdata.notes[res.detail]);
+    console.log(delete (tdata.notes[res.detail]));
+    this.setData({
+      threeData: tdata
+    })
+  },
+  _confirmEvent: function (res) {
+    var tdata = this.data.threeData;
+    console.log('笔记新增的回调', res.detail.qid, res.detail.noteInput, tdata.notes[res.detail.qid]);
+    console.log(tdata.notes[res.detail.qid] = { 'Content': res.detail.noteInput });
+    this.setData({
+      threeData: tdata
+    })
+  },
+
+
+
+  onBeiti: function (e) {
+    var that = this;
+    console.log(e.currentTarget.dataset.examcurrent);
+    if (e.currentTarget.dataset.beiticonfirm) {
+      wx.showModal({
+        title: '提示',
+        content: '开启背题模式后，直接显示全部答案',
+        success: function (res) {
+          console.log(res);
+          if (res.confirm) {
+            that.setData({
+              beiti_logo: !that.data.beiti_logo,
+              beitistatus: !that.data.beitistatus,
+              showParse: true
+            })
+          } else if (res.cancel) {
+            return;
+          }
+        }
+      })
+    } else {
+      that.setData({
+        beiti_logo: !that.data.beiti_logo,
+        beitistatus: !that.data.beitistatus,
+        showParse: false
+      })
+    }
+  },
+
+
+
+  // 显示隐藏答题卡
+  onDatika: function (e) {
+    var showStatus = this.data.showStatus;
+    if (showStatus) {
+      showStatus = false;
+      this.setData({
+        showStatus: showStatus
+      })
+    } else {
+      showStatus = true;
+      this.setData({
+        showStatus: showStatus
+      })
+    }
+  },
+  //跳转到答题卡上对应的题目
+  onTabNum: function (e) {
+    var num = e.currentTarget.dataset.num;
+    this.setData({
+      examcurrent: num - 1,
+      qIndex: num - 1,
+      showStatus: false
+    })
+  },
 
 
   // 可以使用navigator组件。

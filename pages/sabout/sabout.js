@@ -25,16 +25,20 @@ Page({
 
   doShouCang(){
     wx.navigateTo({
-      url: 'shoucang/shoucang'
+      url: 'shoucang/shoucang?purpose=shoucang'
     })
   },
 
   doCuoTi(){
-
+    wx.navigateTo({
+      url: 'shoucang/shoucang?purpose=cuoti'
+    })
   },
 
   doBiJi(){
-
+    wx.navigateTo({
+      url: 'shoucang/shoucang?purpose=biji'
+    })
   },
 
 

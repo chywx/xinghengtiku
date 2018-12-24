@@ -1,5 +1,5 @@
-var basePath ="http://edu.chendahai.cn:8081";
-// var basePath = 'https://wxs.xinghengedu.com';
+// var basePath ="http://edu.chendahai.cn:8081";
+var basePath = 'https://wxs.xinghengedu.com';
 App({
   //自定义全局属性
   curid: "CN101010100",
