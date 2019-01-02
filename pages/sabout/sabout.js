@@ -91,6 +91,21 @@ Page({
   },  
 
 
+  // 客服消息
+  handleContact(e) {
+    console.log("handleContact");
+    console.log(e.path)
+    console.log(e.query)
+  },
+
+
+
+  
+
+
+
+ 
+
 
 
 

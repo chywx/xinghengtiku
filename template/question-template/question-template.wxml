@@ -13,7 +13,6 @@
 
   <view class="ti-da">
     <checkbox-group id="{{questionId}}" bindchange="onCheckboxChange" data-index="{{examId+1}}" wx:if="{{examType=='D' }}">
-    <!-- || examType=='V' || (examType=='G' || examType=='C') -->
       <label class="checkbox" style='display:block;margin-bottom:10rpx;' wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
         <checkbox color="#0b8cf9" checked="{{item.checked == 'true' ? 'checked' : ''}}" value="{{item.name}}" />{{item.name}}:
         <block wx:if="{{item.value==null}}">
@@ -24,7 +23,8 @@
       </label>
     </checkbox-group>
 
-    <view wx:if="{{examType=='E'}}">\t</view>
+    <!-- 试题只有ABCD 不存在E -->
+    <!-- <view wx:if="{{examType=='E'}}">\t</view> -->
 
     <radio-group class="radio-group" bindchange="onRadioChange" id="{{questionId}}" wx:if="{{examType == 'A' || examType == 'B' || examType == 'C'}}"
                                            data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}" data-qbid="{{qbid}}" data-index='{{index}}'  >
@@ -66,7 +66,8 @@
         正确答案：
         <text>{{examRight}}</text>
       </view>
-      <view class="jiexi-da-c" wx:if="{{!isExam && !isZjlx}}"> 
+      <!-- wx:if="{{!isExam && !isZjlx}}  -->
+      <view class="jiexi-da-c" wx:if="{{!isExam}}"> 
         我的答案：
         <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{answer[questionId]}}</text>
       </view>

@@ -59,7 +59,7 @@
       <view class="count">正确率 {{filters.toFix2(item.rights,item.numbers)}}% 排名{{item.ranking}} 用时{{item.duration}}秒</view>
     </view>
     <view class="contr">
-      <navigator url="../mrylquestions/mrylquestions?testId=testId"><image src='/images/newimage/mrjs/join_state_join.png'></image></navigator>
+      <navigator url="../mrylquestions/mrylquestions?testId={{item.testId}}"><image src='/images/newimage/mrjs/join_state_join.png'></image></navigator>
     </view>
   </view>
 </view>

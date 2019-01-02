@@ -48,10 +48,11 @@
       <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
     </view>
   </view>
-  <view class="link_c">
+  <view class="link_c" bindtap='bangzhuzhongxin'>
     <view class="link_li">
       <image src='/images/newimage/tub2.png' style="width:37rpx;height:37rpx;"></image>
       <text class="lzi">帮助中心</text>
+      <!-- <button class="lzi" open-type="contact" bindcontact="handleContact">客服消息</button>  -->
     </view>
     <view class="link_li">
       <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
@@ -76,14 +77,15 @@
       <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
     </view>
   </view>
+
+
+
+
+
+
+
+
+  
+
 </view>
 
-<!-- 
-<view>性别:男</view>
-<view>是否是vip:{{isVip9}}</view>
-<view>专业:{{jcuser.profession}}</view>
-
-<view>用户名:{{jcuser.userName}}</view>
-<view>收藏{{threeData.favorites.length}}</view>
-<view>错题{{threeData.wrongs.length}} </view>
-<view>笔记{{threeData.nodes.length}}</view> -->

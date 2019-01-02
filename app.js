@@ -7,7 +7,6 @@ App({
   userInfo: null,
   data: {
     basePath: basePath//"http://hy.bighook.cn:8081",
-    // basePath: basePath,//'https://wxx.xinghengedu.com'
   },
   globalData: {
     userInfo: null,
@@ -27,6 +26,51 @@ App({
   setlocal:function(id,val){  
     wx.setStorageSync(id, val);//API：设置本地缓存
   },
+
+
+  // getuserinfo 暂时我是不需要,不需要
+  getUserInfo: function (cb) {
+    console.log("getUserInfo", this.globalData.userInfo);
+    var that = this
+    if (this.globalData.userInfo) {
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    } else {
+      console.log("调用登陆接口");
+      
+      wx.login({
+        success: function (res) {
+          if(res.code){
+            console.log("code:",res.code);
+          }
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res);
+              that.globalData.userInfo = res.userInfo
+              typeof cb == "function" && cb(that.globalData.userInfo)
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          })
+        }
+      })
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 显然觉得这些方法写在这块不合适，先这么着吧。
   setVip9Status:function(phone,productType){
     wx.request({
       url: basePath+'/TiKu/getIsVip9.do',
@@ -73,30 +117,7 @@ App({
   onError: function (msg) {
     console.log("App生命周期函数——onError函数");
   },
-  // getuserinfo 暂时我是不需要
-  getUserInfo: function (cb) {
-    console.log(this.globalData.userInfo);
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res);
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            },
-            fail:function(res){
-              console.log(res);
-            }
-          })
-        }
-      })
-    }
-  },
+  
   set3Method(username, productType){
     //1 vip9
     wx.request({

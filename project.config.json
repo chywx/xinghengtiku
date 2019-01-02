@@ -8,17 +8,13 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx113b9f06f5a4f509",
 	"projectname": "%E6%98%9F%E6%81%92%E9%A2%98%E5%BA%93",
-	"svr": "/",
-	"client": "/",
-	"qcloudRoot": "/",
-	"miniprogramRoot": "/",
-	"pluginRoot": "/",
 	"scripts": {},
 	"condition": {
 		"search": {
@@ -42,7 +38,7 @@
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/test3/test3",
+					"pathName": "pages/test2/test2",
 					"query": ""
 				},
 				{

@@ -17,6 +17,20 @@ Page({
   },
   // 登陆操作
   onButtonZhuce: function (e) {
+
+    // 登陆在这块进行单独的操作，，并不在app.js里面
+    console.log("在login-yzm.js里面调用了wx.login方法");
+    wx.login({
+      success(res){
+        if(res.code){
+          console.log("code码：",res.code);
+        }
+      }
+    })
+
+
+
+
     //进行授权操作。
     wx.setStorageSync("userinfo", e.detail.userInfo);
     var that = this;

@@ -70,7 +70,10 @@ Page({
 
 
 
-
+  formSubmit(e) {
+    console.log("formSubmit");
+    console.log(e.detail.formId);
+  },
 
 
 
