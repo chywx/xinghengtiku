@@ -4,7 +4,7 @@
     <text class="ti-wen-num">{{examId+1}} </text>
     <text>{{newExamAsk.examAsk}}</text>
     <view class="que-img" wx:for="{{newExamAsk.imgs}}" wx:key="0" wx:for-index="ids">
-      <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu'>
+      <image src='{{basePath+item}}' data-src='{{basePath+item}}' bindtap='imgYu' mode="widthFix">
       </image>
       <text class="que-img-num">图{{ids+1}}</text>
     </view>
@@ -16,8 +16,7 @@
       <label class="checkbox" style='display:block;margin-bottom:10rpx;' wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
         <checkbox color="#0b8cf9" checked="{{item.checked == 'true' ? 'checked' : ''}}" value="{{item.name}}" />{{item.name}}:
         <block wx:if="{{item.value==null}}">
-          <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu'>
-          </image>
+          <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu' />
         </block>
         <block wx:else >{{item.value}}</block>
       </label>
@@ -26,8 +25,7 @@
     <!-- 试题只有ABCD 不存在E -->
     <!-- <view wx:if="{{examType=='E'}}">\t</view> -->
 
-    <radio-group class="radio-group" bindchange="onRadioChange" id="{{questionId}}" wx:if="{{examType == 'A' || examType == 'B' || examType == 'C'}}"
-                                           data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}" data-qbid="{{qbid}}" data-index='{{index}}'  >
+    <radio-group class="radio-group" bindchange="onRadioChange" id="{{questionId}}" wx:if="{{examType == 'A' || examType == 'B' || examType == 'C'}}" data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}" data-qbid="{{qbid}}" data-index='{{index}}'>
       <label wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
           <!-- 是章节练习，做一道题查看一道题的答案 -->
           <view wx:if="{{!isExam && isZjlx}}">
@@ -35,26 +33,41 @@
               <view wx:if="{{item.name == examRight}}">
                 <radio color="{{showParse == true ? '#0b8cf9':''}}" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
                 <span class="{{showParse == true ? 'AA':''}}">{{item.name}} </span>
-                <block  ><span class="{{showParse == true ? 'AA':''}}">{{item.value}}</span></block>
+                <!--表示正确答案-->
+                <block wx:if="{{item.value==null}}"><span class="{{showParse == true ? 'AA':''}}">
+                  <image src='{{basePath+item.img}}' mode="widthFix" data-src='{{basePath+item.img}}' bindtap='imgYu' />
+                </span></block>
+                <block wx:else><span class="{{showParse == true ? 'AA':''}}">{{item.value}}</span></block>
               </view>
               <!-- 如果跟答案不一样，不考虑有没有解析，只考虑当前选项是不是答案，是的话选中为蓝色，不是的话选中为红色。不选为默认黑色。 -->
               <view wx:if="{{item.name != examRight}}">
                 <radio color="{{answer[questionId] == item.name ? 'red':''}}" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
                 <span class="{{answer[questionId] == item.name ? 'BB':''}}">{{item.name}} </span>
-                <block  ><span class="{{answer[questionId] == item.name ? 'BB':''}}">{{item.value}}</span></block>
+                <block wx:if="{{item.value==null}}"><span class="{{answer[questionId] == item.name ? 'BB':''}}">
+                  <image src='{{basePath+item.img}}' mode="widthFix" data-src='{{basePath+item.img}}' bindtap='imgYu' />
+                </span></block>
+                <block wx:else><span class="{{answer[questionId] == item.name ? 'BB':''}}">{{item.value}}</span></block>
               </view>
           </view>
+
           <!-- ***不是考试，也不是章节练习，就是直接查看解析，将radio设置为disable,可见还是直接看解析最容易。 -->
           <view wx:if="{{!isExam && !isZjlx}}">
               <radio disabled="true"/>
               <span class="{{item.name == examRight ? 'AA':''}}">{{item.name}} </span>
-              <block><span class="{{item.name == examRight ? 'AA':''}}">{{item.value}}</span></block>
+              <block wx:if="{{item.value==null}}"><span class="{{item.name == examRight ? 'AA':''}}">
+                <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu' />
+              </span></block>
+              <block wx:else><span class="{{item.name == examRight ? 'AA':''}}">{{item.value}}</span></block>
           </view>
+
           <!-- ***只要是考试，那么就不考虑直接回显答案问题，直接使用默认选中样式即可 -->
           <view wx:if="{{isExam}}">
               <radio color="#0b8cf9" checked="{{answer[questionId] == item.name ? 'checked' : ''}}" value="{{item.name}}" />
               <span class="{{answer[questionId] == item.name ? 'AA' : ''}}">{{item.name}} </span>
-              <block><span class="{{answer[questionId] == item.name ? 'AA' : ''}}">{{item.value}}</span></block>
+              <block  wx:if="{{item.value==null}}"><span class="{{answer[questionId] == item.name ? 'AA' : ''}}">
+                <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu' />
+              </span></block>
+              <block wx:else><span class="{{answer[questionId] == item.name ? 'AA' : ''}}">{{item.value}}</span></block>
           </view>
       </label>
     </radio-group>

@@ -386,4 +386,15 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);//返回角度 /Math.atan()返回数字的反正切值
   },
 
+
+  imgYu: function (event) {
+    //getApp().globalData.scence = 1;
+    var src = event.currentTarget.dataset.src;//获取data-src
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: [src]
+    })
+  },
+
 })
