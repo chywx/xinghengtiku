@@ -230,6 +230,40 @@ Page({
     })
   },
 
+  checkboxSub(){
+    var showParse = "examData[" + this.data.examcurrent + "].showParse";
+    this.setData({
+      [showParse] : true,
+    })
+  },
+
+  /**
+   * 多选题选择答案
+   */
+  onCheckboxChange: function (e) {
+    console.log(e);
+    var questionId = e.currentTarget.id;// 题目id
+    var value = e.detail.value.sort();// 用户选的答案
+    answers[questionId] = value.join('');// 存入map
+    wx.setStorageSync('ksid_' + ksid, answers);// 存入缓存内
+    var index = e.currentTarget.dataset.index;
+    var showParse = "examData[" + this.data.examcurrent + "].showParse";
+    if (this.data.examcurrent < this.data.examData.length - 1) {
+      var mine = "examData[" + this.data.examcurrent + "].yzt";
+      this.setData({
+        answer: answers,
+        [mine]: '1',
+        examcurrent: this.data.examcurrent,
+        //[showParse]: true,
+      })
+    } else {
+      wx.showToast({
+        "title": "这已经是最后一题了！",
+        "icon": "none"
+      })
+    }
+  },
+
   /**
    * 单选题选择答案
    */
@@ -305,31 +339,7 @@ Page({
     })
   },
 
-  /**
-   * 多选题选择答案
-   */
-  onCheckboxChange: function (e) {
-    console.log(e);
-    var questionId = e.currentTarget.id;// 题目id
-    var value = e.detail.value;// 用户选的答案
-    console.log(value.sort().join(''));
-    answers[questionId] = value.sort().join('');// 存入map
-    wx.setStorageSync('ksid_' + ksid, answers);// 存入缓存内
-    var index = e.currentTarget.dataset.index;
-
-    if (this.data.examcurrent < this.data.examData.length - 1) {
-      var mine = "examData[" + this.data.examcurrent + "].yzt";
-      this.setData({
-        [mine]: '1',
-        examcurrent: this.data.examcurrent
-      })
-    } else {
-      wx.showToast({
-        "title": "这已经是最后一题了！",
-        "icon": "none"
-      })
-    }
-  },
+  
 
   // 点击上一题按钮的方法
   onTabBefore: function (e) {

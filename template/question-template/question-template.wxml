@@ -14,12 +14,17 @@
   <view class="ti-da">
     <checkbox-group id="{{questionId}}" bindchange="onCheckboxChange" data-index="{{examId+1}}" wx:if="{{examType=='D' }}">
       <label class="checkbox" style='display:block;margin-bottom:10rpx;' wx:for="{{newAnswer}}" wx:key="navItems" wx:for-item="item" wx:for-index="idx">
-        <checkbox color="#0b8cf9" checked="{{item.checked == 'true' ? 'checked' : ''}}" value="{{item.name}}" />{{item.name}}:
+        <!-- checked="{{answer[questionId] == item.name ? 'checked' : ''}}" -->
+        <checkbox color="#0b8cf9" checked='{{filters.toInclude(answer[questionId],item.name)}}' value="{{item.name}}" />
+        <span class="{{(showParse == true  && filters.toInclude(examRight,item.name) ) ? 'AA':''}}">{{item.name}} </span> 
         <block wx:if="{{item.value==null}}">
-          <image src='{{basePath+item.img}}' style='height:100rpx;width:100rpx' data-src='{{basePath+item.img}}' bindtap='imgYu' />
+          <image src='{{basePath+item.img}}' mode="widthFix" data-src='{{basePath+item.img}}' bindtap='imgYu' />
         </block>
-        <block wx:else >{{item.value}}</block>
+        <block wx:else>
+          <span class="{{(showParse == true  && filters.toInclude(examRight,item.name) ) ? 'AA':''}}">{{item.value}}</span>
+        </block>
       </label>
+      <view bindtap='checkboxSub' class="tjda">提交答案</view>
     </checkbox-group>
 
     <!-- 试题只有ABCD 不存在E -->
@@ -76,19 +81,19 @@
   <view wx:if="{{showParse}}" class="jiexi">
     <view class="ti-right jiexi-da">
       <view class="jiexi-da-l">
-        正确答案：
+        正确答案 
         <text>{{examRight}}</text>
       </view>
       <!-- wx:if="{{!isExam && !isZjlx}}  -->
       <view class="jiexi-da-c" wx:if="{{!isExam}}"> 
-        我的答案：
+        我的答案 
         <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{answer[questionId]}}</text>
       </view>
       <view class="jiexi-da-r"><text bindtap='onComments' data-feedid='{{feedId}}'>{{examDataDetailObj[qid].notes}}评论</text></view>
     </view>  
     <view class="jiexi-li">
       <view class="jiexi-li-l">
-      错题率：
+      错题率 
       <text class="{{examRight == answer[questionId] ? '#0b8cf9' : 'red'}}">{{filters.toFix(examDataDetailObj[qid].wrongs,examDataDetailObj[qid].dos)}}% \t</text>
       </view>
       <view class="jiexi-li-r"><text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].favorites}}人收藏</text></view>
@@ -96,7 +101,7 @@
     <view class="jiexi-li">      
         <!-- <text class="{{'#0b8cf9'}}">{{examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1}}</text> -->
       <view class="comment1-description" style="display:flex;flex-direction:row;">
-        难度：
+        难度 
         <view class="star-pos" style="display:flex;flex-direction:row;">
           <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=1? 'on': ''}}"></view>
           <view class="stars  {{(examDataDetailObj[qid].difficulty ? examDataDetailObj[qid].difficulty : 1)>=2? 'on': ''}}"></view>
@@ -112,7 +117,7 @@
     <!-- <i-button bind:click="sortData" inline type="primary">按错题率排序</i-button>
     <i-button bind:click="showWrong" inline type="error">只显示错题</i-button> -->
     <view class="ti-resolve">
-      解析：<view></view>
+      解析 <view></view>
       <text>{{resolve.examResolve}}
     </text>
       <view class="que-img" wx:for="{{resolve.imgs}}" wx:key="0" wx:for-index="ids">

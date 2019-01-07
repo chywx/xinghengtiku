@@ -47,6 +47,14 @@
   color:red;
 }
 
+.tjda{
+  text-align:center;
+  background-color:#0b8cf9;
+  color:#fff;
+  line-height:75rpx;
+  margin-top:15px;
+}
+
 
 
 
