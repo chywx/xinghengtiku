@@ -24,7 +24,7 @@
           <span class="{{(showParse == true  && filters.toInclude(examRight,item.name) ) ? 'AA':''}}">{{item.value}}</span>
         </block>
       </label>
-      <view bindtap='checkboxSub' class="tjda">提交答案</view>
+      <view bindtap='checkboxSub' class="tjda" data-testid="{{testId}}" data-rightanswer="{{examRight}}" data-qid="{{qid}}">提交答案</view>
     </checkbox-group>
 
     <!-- 试题只有ABCD 不存在E -->

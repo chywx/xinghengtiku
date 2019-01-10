@@ -4,6 +4,7 @@ var answers = {};
 var ksid = '';
 var phone = '';
 var productType = null;
+var duoValue = "";
 
 Page({
   data: {
@@ -230,11 +231,14 @@ Page({
     })
   },
 
-  checkboxSub(){
+  checkboxSub(e){
     var showParse = "examData[" + this.data.examcurrent + "].showParse";
     this.setData({
       [showParse] : true,
     })
+    // console.log("checkboxSub参数：", ksid, productType, e.currentTarget.dataset.testid, 1, phone, duoValue, e.currentTarget.dataset.rightanswer, e.currentTarget.dataset.qid);
+    this.subCharpterAnswer(ksid, productType, e.currentTarget.dataset.testid, 1, phone, duoValue);
+    this.subWrongSetForUser(e.currentTarget.dataset.qid, productType, phone, duoValue, e.currentTarget.dataset.rightanswer);
   },
 
   /**
@@ -245,6 +249,7 @@ Page({
     var questionId = e.currentTarget.id;// 题目id
     var value = e.detail.value.sort();// 用户选的答案
     answers[questionId] = value.join('');// 存入map
+    duoValue = value.join('');//给全局多选题赋值，用于提交答案操作。
     wx.setStorageSync('ksid_' + ksid, answers);// 存入缓存内
     var index = e.currentTarget.dataset.index;
     var showParse = "examData[" + this.data.examcurrent + "].showParse";
