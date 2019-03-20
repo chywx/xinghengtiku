@@ -52,7 +52,7 @@
     <view class="link_li">
       <image src='/images/newimage/tub2.png' style="width:37rpx;height:37rpx;"></image>
       <text class="lzi">帮助中心</text>
-      <!-- <button class="lzi" open-type="contact" bindcontact="handleContact">客服消息</button>  -->
+      <button class="lzi" open-type="contact" bindcontact="handleContact">客服消息</button> 
     </view>
     <view class="link_li">
       <image src='/images/newimage/jiantou.png' style="width:15rpx;height:29rpx;"></image>
