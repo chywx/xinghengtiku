@@ -25,7 +25,7 @@
   "window": {
     "navigationBarBackgroundColor": "#0b97f9",
     "navigationBarTitleText": "home",
-    "navigationBarTextStyle": "#fff",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#666",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": true
@@ -50,5 +50,6 @@
       }
     ],
     "position": "bottom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
